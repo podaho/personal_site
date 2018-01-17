@@ -1,0 +1,20 @@
+{
+  "name": "personal_site",
+  "version": "1.0.0",
+  "description": "Po's Personal Site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/podaho/personal_site.git"
+  },
+  "author": "podaho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/podaho/personal_site/issues"
+  },
+  "homepage": "https://github.com/podaho/personal_site#readme"
+}
