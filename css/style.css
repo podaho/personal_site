@@ -1,0 +1,23 @@
+body {
+    background-color: black;
+}
+
+#logo-p, #logo-l {
+    width: 50px;
+    left: 25px;
+    top: 25px;
+    position: relative;
+    z-index: 10;
+}
+
+#logo-p {
+    z-index: 11;
+}
+
+#logo-p-container, #logo-l-container {
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    position: absolute;
+}
