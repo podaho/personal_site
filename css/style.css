@@ -21,3 +21,11 @@ body {
     border-radius: 50px;
     position: absolute;
 }
+
+#logo-p-container {
+    right: -100px;
+}
+
+#logo-l-container {
+    left: -100px;
+}
