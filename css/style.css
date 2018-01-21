@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Nixie+One');
+
 body {
     background-color: black;
 }
 
-#logo-p, #logo-l {
+#logo-p, #logo-l, #logo-pl {
     width: 50px;
     left: 25px;
     top: 25px;
@@ -14,12 +16,14 @@ body {
     z-index: 11;
 }
 
-#logo-p-container, #logo-l-container {
+#logo-p-container, #logo-l-container, #logo-container {
     background-color: white;
-    width: 100px;
-    height: 100px;
-    border-radius: 50px;
     position: absolute;
+}
+
+#pulsing-ring {
+    position: absolute;
+    visibility: hidden;
 }
 
 #logo-p-container {
@@ -28,4 +32,20 @@ body {
 
 #logo-l-container {
     left: -100px;
+}
+
+#logo-container {
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.navbar-link {
+    color: white;
+    font-family: 'Nixie One', cursive;
+    visibility: hidden;
+}
+
+.navbar-link-div:hover {
+    font-weight: bolder;
+    cursor: pointer;
 }
