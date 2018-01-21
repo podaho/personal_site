@@ -1,10 +1,17 @@
-//TODO
-//  Detect Zoom
-//  Boolean to detect logo movement is complete, then make sure logo is still centered
-
 const $ = require('jquery');
 
+const isInViewport = (elem) => {
+    let elemTop = elem.offsetTop;
+    let elemBottom = elemTop + elem.offsetHeight;
+    let viewportTop = window.scrollY;
+    let viewportBottom = viewportTop + window.innerHeight;
+    //console.log("elemTop: "+elemTop+"; elemBottom: "+elemBottom+"; viewPortTop: "+viewportTop+"; viewPortBottom: "+viewportBottom)
+    return elemBottom > viewportTop && elemTop < viewportBottom;
+};
+
 $(document).ready(() => {
+    var currentView = "resume";
+    const resumeSections = $("#resume-content .section");
     const logoP = $("#logo-p");
     const logoL = $("#logo-l");
     const logoPL = $("#logo-pl");
@@ -150,6 +157,12 @@ $(document).ready(() => {
             var evenCharTimeoutId = setTimeout(() => {
                 navbarTextOdd.fadeTo(800,1);
             }, 400);
+            for(let i = 0; i < resumeSections.length; i++) {
+                if(isInViewport(resumeSections[i])) {
+                    $(resumeSections[i]).fadeTo(800, 1);
+                }
+            }
+            
         }
     }, 1);
 
@@ -157,7 +170,7 @@ $(document).ready(() => {
         logoTopOffset = $(window).height()*screenTopOffsetMultiplier;
         logoWidthHeight = $(window).width()*screenLogoSizeMultiplier;
         var targetPixel = $(window).width()/2-logoWidthHeight/2;
-        console.log("width of window is: "+$(window).width()+"; logo width is: "+logoWidthHeight+"; centering pixel is: "+targetPixel);
+        //console.log("width of window is: "+$(window).width()+"; logo width is: "+logoWidthHeight+"; centering pixel is: "+targetPixel);
 
         logoP.css({
             "width": logoWidthHeight/2+"px",
@@ -216,5 +229,14 @@ $(document).ready(() => {
         navbarText.css({
             "font-size": logoWidthHeight*(1/5)+"px"
         });
+    });
+
+    $(window).on("resize scroll", function() {
+        //console.log(resumeSections);
+        for(let i = 0; i < resumeSections.length; i++) {
+            if(isInViewport(resumeSections[i])) {
+                $(resumeSections[i]).fadeTo(700, 1);
+            }
+        }
     });
 });

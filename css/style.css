@@ -54,6 +54,10 @@ body {
     color: white;
 }
 
+#resume-content .section {
+    opacity: 0;
+}
+
 .resume-section-headers {
     font-family: 'Nixie One', cursive;
     font-weight: bolder;
