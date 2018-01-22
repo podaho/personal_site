@@ -46,7 +46,7 @@ body {
 }
 
 .navbar-link-div:hover {
-    font-weight: bolder;
+    font-weight: 900;
     cursor: pointer;
 }
 

@@ -1,3 +1,5 @@
+//FORMSPREE
+
 const $ = require('jquery');
 
 const isInViewport = (elem) => {
