@@ -1,4 +1,4 @@
-//FORMSPREE
+//TODO Sending Contact Info To FormSpree
 
 const $ = require('jquery');
 
@@ -7,13 +7,24 @@ const isInViewport = (elem) => {
     let elemBottom = elemTop + elem.offsetHeight;
     let viewportTop = window.scrollY;
     let viewportBottom = viewportTop + window.innerHeight;
-    //console.log("elemTop: "+elemTop+"; elemBottom: "+elemBottom+"; viewPortTop: "+viewportTop+"; viewPortBottom: "+viewportBottom)
+    console.log("elemTop: "+elemTop+"; elemBottom: "+elemBottom+"; viewPortTop: "+viewportTop+"; viewPortBottom: "+viewportBottom)
     return elemBottom > viewportTop && elemTop < viewportBottom;
 };
 
 $(document).ready(() => {
-    var currentView = "resume";
-    const resumeSections = $("#resume-content .section");
+    var currentView = $("#home-content");
+    var currentContentSections = $("#home-content .section");
+
+    const homeLink = $("#logo-container");
+
+    const resumeLink = $("#resume-link");
+
+    const contactLink = $("#contact-link");
+
+    const projectsLink = $("#projects-link");
+
+    const thesisLink = $("#thesis-link");
+
     const logoP = $("#logo-p");
     const logoL = $("#logo-l");
     const logoPL = $("#logo-pl");
@@ -41,6 +52,13 @@ $(document).ready(() => {
     const logoFadeIn = () => {
         if(!logoPulseHalt) {
             logoContPL.fadeTo(1000, 1, logoFadeOut);
+        }
+    };
+    const contentFadeIn = (sectionsSelector) => {
+        for(let i = 0; i < sectionsSelector.length; i++) {
+            if(isInViewport(sectionsSelector[i])) {
+                $(sectionsSelector[i]).fadeTo(700, 1);
+            }
         }
     };
 
@@ -86,7 +104,6 @@ $(document).ready(() => {
         "border-radius": logoWidthHeight/2+"px"
     });
 
-    var logoPulsingIntervalId;
     logoContPL.hover(() => {
         logoPulseHalt = false;
         logoFadeOut();
@@ -159,12 +176,7 @@ $(document).ready(() => {
             var evenCharTimeoutId = setTimeout(() => {
                 navbarTextOdd.fadeTo(800,1);
             }, 400);
-            for(let i = 0; i < resumeSections.length; i++) {
-                if(isInViewport(resumeSections[i])) {
-                    $(resumeSections[i]).fadeTo(800, 1);
-                }
-            }
-            
+            contentFadeIn(currentContentSections);
         }
     }, 1);
 
@@ -234,11 +246,52 @@ $(document).ready(() => {
     });
 
     $(window).on("resize scroll", function() {
-        //console.log(resumeSections);
-        for(let i = 0; i < resumeSections.length; i++) {
-            if(isInViewport(resumeSections[i])) {
-                $(resumeSections[i]).fadeTo(700, 1);
-            }
-        }
+        //TODO Debounce
+        contentFadeIn(currentContentSections);
+    });
+
+    homeLink.click(() => {
+        //TODO Fade all elements out to opacity 0 to float in once loaded
+        currentView.hide();
+        currentView = $("#home-content");
+        currentContentSections = $("#home-content .section");
+        currentView.show();
+        contentFadeIn(currentContentSections);
+    });
+
+    resumeLink.click(() => {
+        //TODO Fade all elements out to opacity 0 to float in once loaded
+        currentView.hide();
+        currentView = $("#resume-content");
+        currentContentSections = $("#resume-content .section");
+        currentView.show();
+        contentFadeIn(currentContentSections);
+    });
+
+    contactLink.click(() => {
+        //TODO Fade all elements out to opacity 0 to float in once loaded
+        currentView.hide();
+        currentView = $("#contact-content");
+        currentContentSections = $("#contact-content .section");
+        currentView.show();
+        contentFadeIn(currentContentSections);
+    });
+
+    projectsLink.click(() => {
+        //TODO Fade all elements out to opacity 0 to float in once loaded
+        currentView.hide();
+        currentView = $("#projects-content");
+        currentContentSections = $("#projects-content .section");
+        currentView.show();
+        contentFadeIn(currentContentSections);
+    });
+
+    thesisLink.click(() => {
+        //TODO Fade all elements out to opacity 0 to float in once loaded
+        currentView.hide();
+        currentView = $("#thesis-content");
+        currentContentSections = $("#thesis-content .section");
+        currentView.show();
+        contentFadeIn(currentContentSections);
     });
 });

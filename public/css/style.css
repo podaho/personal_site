@@ -50,8 +50,26 @@ body {
     cursor: pointer;
 }
 
+#home-content {
+    color: white;
+}
+
+#home-content .section {
+    opacity: 0;
+}
+
+#contact-content {
+    color: white;
+    display: none;
+}
+
+#contact-content .section {
+    opacity: 0;
+}
+
 #resume-content {
     color: white;
+    display: none;
 }
 
 #resume-content .section {
@@ -89,4 +107,22 @@ td {
 .right-align>.resume-section-body {
     border-right: 3px solid white;
     padding-right: 20px;
+}
+
+#projects-content {
+    color: white;
+    display: none;
+}
+
+#projects-content .section {
+    opacity: 0;
+}
+
+#thesis-content {
+    color: white;
+    display: none;
+}
+
+#thesis-content .section {
+    opacity: 0;
 }
