@@ -15,15 +15,15 @@ $(document).ready(() => {
     var currentView = $("#home-content");
     var currentContentSections = $("#home-content .section");
 
-    const homeLink = $("#logo-container");
+    const homeLink = $("#logo-container, #logo-container-collapsed");
 
-    const resumeLink = $("#resume-link");
+    const resumeLink = $("#resume-link, #resume-link-collapsed");
 
-    const contactLink = $("#contact-link");
+    const contactLink = $("#contact-link, #contact-link-collapsed");
 
-    const projectsLink = $("#projects-link");
+    const projectsLink = $("#projects-link, #projects-link-collapsed");
 
-    const thesisLink = $("#thesis-link");
+    const thesisLink = $("#thesis-link, #thesis-link-collapsed");
 
     const logoP = $("#logo-p");
     const logoL = $("#logo-l");
@@ -31,7 +31,9 @@ $(document).ready(() => {
     const logoContP = $("#logo-p-container");
     const logoContL = $("#logo-l-container");
     const logoContPL = $("#logo-container");
+    const logoContPLCollapsed = $("#logo-container-collapsed");
     const navbar = $(".navbar-block");
+    const navbarCollapsed = $(".navbar-block-collapsed");
     const navbarText = $(".navbar-link");
     const navbarTextEven = $(".navbar-link>span:nth-child(2n)");
     const navbarTextOdd = $(".navbar-link>span:nth-child(2n+1)");
@@ -254,6 +256,11 @@ $(document).ready(() => {
         //TODO Debounce
         recenterLogo();
         contentFadeIn(currentContentSections);
+        if(!isInViewport(navbar[0])) {
+            navbarCollapsed.show();
+        } else {
+            navbarCollapsed.hide();
+        }
     });
 
     homeLink.click(() => {

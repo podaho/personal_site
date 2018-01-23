@@ -40,11 +40,20 @@ body {
 }
 
 #logo-pl-collapsed {
-    overflow: hidden;
+    width: 100%;
 }
 
 .navbar-block-collapsed {
     background-color: white;
+    height: 5vh;
+    display: none;
+    position: fixed;
+    top: 0px;
+    z-index: 10;
+}
+
+.navbar-block-collapsed .row {
+    line-height: 5vh;
 }
 
 .navbar-link {
