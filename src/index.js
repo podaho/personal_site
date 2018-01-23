@@ -40,6 +40,7 @@ $(document).ready(() => {
     const screenLogoSizeMultiplier = 1/12;
     var logoTopOffset = $(window).height()*screenTopOffsetMultiplier;
     var logoWidthHeight = $(window).width()*screenLogoSizeMultiplier;
+    var targetPixel = $(window).width()/2-logoWidthHeight/2;
     var logoMovementTimeStep = 0;
     var pulseRingTimeStep = 0;
     const timeMultiplier = 300;
@@ -60,6 +61,75 @@ $(document).ready(() => {
                 $(sectionsSelector[i]).fadeTo(700, 1);
             }
         }
+    };
+    const contentResetFade = (sectionsSelector) => {
+        for(let i = 0; i < sectionsSelector.length; i++) {
+            $(sectionsSelector[i]).css("opacity", "0");
+        }
+    };
+    const recenterLogo = () => {
+        logoTopOffset = $(window).height()*screenTopOffsetMultiplier;
+        logoWidthHeight = $(window).width()*screenLogoSizeMultiplier;
+        targetPixel = $(window).width()/2-logoWidthHeight/2;
+        //console.log("width of window is: "+$(window).width()+"; logo width is: "+logoWidthHeight+"; centering pixel is: "+targetPixel);
+
+        logoP.css({
+            "width": logoWidthHeight/2+"px",
+            "left": logoWidthHeight/4+"px",
+            "top": logoWidthHeight/4+"px"
+        });
+
+        logoL.css({
+            "width": logoWidthHeight/2+"px",
+            "left": logoWidthHeight/4+"px",
+            "top": logoWidthHeight/4+"px"
+        });
+
+        logoPL.css({
+            "width": logoWidthHeight/2+"px",
+            "left": logoWidthHeight/4+"px",
+            "top": logoWidthHeight/4+"px"
+        });
+
+        logoContP.css({
+            "top": logoTopOffset+"px",
+            "right": targetPixel+"px",
+            "width": logoWidthHeight+"px",
+            "height": logoWidthHeight+"px",
+            "border-radius": logoWidthHeight/2+"px"
+        });
+
+        logoContL.css({
+            "top": logoTopOffset+"px",
+            "left": targetPixel+"px",
+            "width": logoWidthHeight+"px",
+            "height": logoWidthHeight+"px",
+            "border-radius": logoWidthHeight/2+"px"
+        });
+
+        logoContPL.css({
+            "top": logoTopOffset+"px",
+            "left": targetPixel+"px",
+            "width": logoWidthHeight+"px",
+            "height": logoWidthHeight+"px",
+            "border-radius": logoWidthHeight/2+"px"
+        });
+
+        pulseRing.css({
+            "top": logoTopOffset+"px",
+            "left": targetPixel+"px",
+            "width": logoWidthHeight+"px",
+            "height": logoWidthHeight+"px",
+            "border-radius": logoWidthHeight/2+"px"
+        });
+
+        navbar.css({
+            "margin": logoTopOffset+logoWidthHeight*(1/3)+"px"
+        });
+
+        navbarText.css({
+            "font-size": logoWidthHeight*(1/5)+"px"
+        });
     };
 
     logoP.css({
@@ -135,7 +205,7 @@ $(document).ready(() => {
     var logoMovementIntervalId = setInterval(() => {
         if(logoMovementTimeStep/timeMultiplier < 1) {
             var moveFuncValue = (-1)*Math.pow((logoMovementTimeStep/timeMultiplier-1),2)+1;
-            var targetPixel = $(window).width()/2-logoWidthHeight/2;
+            targetPixel = $(window).width()/2-logoWidthHeight/2;
             logoContP.css({
                 "right": moveFuncValue*targetPixel+"px",
                 "top": logoTopOffset+"px"
@@ -180,118 +250,64 @@ $(document).ready(() => {
         }
     }, 1);
 
-    $(window).resize(()=>{
-        logoTopOffset = $(window).height()*screenTopOffsetMultiplier;
-        logoWidthHeight = $(window).width()*screenLogoSizeMultiplier;
-        var targetPixel = $(window).width()/2-logoWidthHeight/2;
-        //console.log("width of window is: "+$(window).width()+"; logo width is: "+logoWidthHeight+"; centering pixel is: "+targetPixel);
-
-        logoP.css({
-            "width": logoWidthHeight/2+"px",
-            "left": logoWidthHeight/4+"px",
-            "top": logoWidthHeight/4+"px"
-        });
-
-        logoL.css({
-            "width": logoWidthHeight/2+"px",
-            "left": logoWidthHeight/4+"px",
-            "top": logoWidthHeight/4+"px"
-        });
-
-        logoPL.css({
-            "width": logoWidthHeight/2+"px",
-            "left": logoWidthHeight/4+"px",
-            "top": logoWidthHeight/4+"px"
-        });
-
-        logoContP.css({
-            "top": logoTopOffset+"px",
-            "right": targetPixel+"px",
-            "width": logoWidthHeight+"px",
-            "height": logoWidthHeight+"px",
-            "border-radius": logoWidthHeight/2+"px"
-        });
-
-        logoContL.css({
-            "top": logoTopOffset+"px",
-            "left": targetPixel+"px",
-            "width": logoWidthHeight+"px",
-            "height": logoWidthHeight+"px",
-            "border-radius": logoWidthHeight/2+"px"
-        });
-
-        logoContPL.css({
-            "top": logoTopOffset+"px",
-            "left": targetPixel+"px",
-            "width": logoWidthHeight+"px",
-            "height": logoWidthHeight+"px",
-            "border-radius": logoWidthHeight/2+"px"
-        });
-
-        pulseRing.css({
-            "top": logoTopOffset+"px",
-            "left": targetPixel+"px",
-            "width": logoWidthHeight+"px",
-            "height": logoWidthHeight+"px",
-            "border-radius": logoWidthHeight/2+"px"
-        });
-
-        navbar.css({
-            "margin": logoTopOffset+logoWidthHeight*(1/3)+"px"
-        });
-
-        navbarText.css({
-            "font-size": logoWidthHeight*(1/5)+"px"
-        });
-    });
-
     $(window).on("resize scroll", function() {
         //TODO Debounce
+        recenterLogo();
         contentFadeIn(currentContentSections);
     });
 
     homeLink.click(() => {
         //TODO Fade all elements out to opacity 0 to float in once loaded
+        contentResetFade(currentContentSections);
         currentView.hide();
         currentView = $("#home-content");
         currentContentSections = $("#home-content .section");
         currentView.show();
         contentFadeIn(currentContentSections);
+        recenterLogo();
     });
 
     resumeLink.click(() => {
         //TODO Fade all elements out to opacity 0 to float in once loaded
+        contentResetFade(currentContentSections);
         currentView.hide();
         currentView = $("#resume-content");
         currentContentSections = $("#resume-content .section");
         currentView.show();
         contentFadeIn(currentContentSections);
+        recenterLogo();
     });
 
     contactLink.click(() => {
         //TODO Fade all elements out to opacity 0 to float in once loaded
+        contentResetFade(currentContentSections);
         currentView.hide();
         currentView = $("#contact-content");
         currentContentSections = $("#contact-content .section");
         currentView.show();
         contentFadeIn(currentContentSections);
+        recenterLogo();
     });
 
     projectsLink.click(() => {
         //TODO Fade all elements out to opacity 0 to float in once loaded
+        contentResetFade(currentContentSections);
         currentView.hide();
         currentView = $("#projects-content");
         currentContentSections = $("#projects-content .section");
         currentView.show();
         contentFadeIn(currentContentSections);
+        recenterLogo();
     });
 
     thesisLink.click(() => {
         //TODO Fade all elements out to opacity 0 to float in once loaded
+        contentResetFade(currentContentSections);
         currentView.hide();
         currentView = $("#thesis-content");
         currentContentSections = $("#thesis-content .section");
         currentView.show();
         contentFadeIn(currentContentSections);
+        recenterLogo();
     });
 });

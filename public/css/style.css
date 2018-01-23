@@ -39,13 +39,26 @@ body {
     cursor: pointer;
 }
 
+#logo-pl-collapsed {
+    overflow: hidden;
+}
+
+.navbar-block-collapsed {
+    background-color: white;
+}
+
 .navbar-link {
     color: white;
     font-family: 'Nixie One', cursive;
     visibility: hidden;
 }
 
-.navbar-link-div:hover {
+.navbar-link-collapsed {
+    color: black;
+    font-family: 'Nixie One', cursive;
+}
+
+.navbar-link-div:hover, .navbar-link-div-collapsed:hover {
     font-weight: 900;
     cursor: pointer;
 }
