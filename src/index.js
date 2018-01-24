@@ -7,7 +7,7 @@ const isInViewport = (elem) => {
     let elemBottom = elemTop + elem.offsetHeight;
     let viewportTop = window.scrollY;
     let viewportBottom = viewportTop + window.innerHeight;
-    console.log("elemTop: "+elemTop+"; elemBottom: "+elemBottom+"; viewPortTop: "+viewportTop+"; viewPortBottom: "+viewportBottom)
+    //console.log("elemTop: "+elemTop+"; elemBottom: "+elemBottom+"; viewPortTop: "+viewportTop+"; viewPortBottom: "+viewportBottom)
     return elemBottom > viewportTop && elemTop < viewportBottom;
 };
 
@@ -35,11 +35,18 @@ $(document).ready(() => {
     const navbar = $(".navbar-block");
     const navbarCollapsed = $(".navbar-block-collapsed");
     const navbarText = $(".navbar-link");
+    const navbarTextCollapsed = $(".navbar-link-collapsed");
     const navbarTextEven = $(".navbar-link>span:nth-child(2n)");
     const navbarTextOdd = $(".navbar-link>span:nth-child(2n+1)");
     const pulseRing = $("#pulsing-ring");
+    const pulseRingCollapsed = $("#pulsing-ring-collapsed");
     const screenTopOffsetMultiplier = 0.05;
     const screenLogoSizeMultiplier = 1/12;
+
+    // var logoWidthHeight*(1+((pulseRingTimeStep%251)/250));
+    // var newPulseRingTopOffset = logoTopOffset-(newPulseRingWidthHeight-logoWidthHeight)/2;
+    // var newPulseRingTargetPixel = ($(window).width()-newPulseRingWidthHeight)/2;
+
     var logoTopOffset = $(window).height()*screenTopOffsetMultiplier;
     var logoWidthHeight = $(window).width()*screenLogoSizeMultiplier;
     var targetPixel = $(window).width()/2-logoWidthHeight/2;
@@ -176,12 +183,44 @@ $(document).ready(() => {
         "border-radius": logoWidthHeight/2+"px"
     });
 
+    var pulseRingIntervalId;
     logoContPL.hover(() => {
-        logoPulseHalt = false;
-        logoFadeOut();
+        pulseRing.show();
+        pulseRingIntervalId = setInterval(() => {
+            var newPulseRingWidthHeight = logoWidthHeight*(1+((pulseRingTimeStep%251)/250));
+            var newPulseRingTopOffset = logoTopOffset-(newPulseRingWidthHeight-logoWidthHeight)/2;
+            var newPulseRingTargetPixel = ($(window).width()-newPulseRingWidthHeight)/2;
+            pulseRing.css({
+                "width": newPulseRingWidthHeight+"px",
+                "height": newPulseRingWidthHeight+"px",
+                "top": newPulseRingTopOffset+"px",
+                "left": newPulseRingTargetPixel+"px",
+                "opacity": 1-(pulseRingTimeStep%251)/249
+            });
+            pulseRingTimeStep++;
+        }, 1);
     }, () => {
-        logoPulseHalt = true;
-        logoContPL.fadeTo(100, 1);
+        clearInterval(pulseRingIntervalId);
+        pulseRing.hide();
+        pulseRingTimeStep = 0;
+    });
+    logoContPLCollapsed.hover(() => {
+        pulseRingCollapsed.show();
+        pulseRingIntervalId = setInterval(() => {
+            const pulseRingWidth = logoContPLCollapsed.css("width").substring(0, logoContPLCollapsed.css("width").length-2);
+            var newPulseRingWidth = pulseRingWidth*(1+((pulseRingTimeStep%201)/400));
+            var newPulseRingTargetPixel = ($(window).width()-newPulseRingWidth)/2;
+            pulseRingCollapsed.css({
+                "width": newPulseRingWidth+"px",
+                "left": newPulseRingTargetPixel+"px",
+                "opacity": 1-(pulseRingTimeStep%201)/200
+            });
+            pulseRingTimeStep++;
+        }, 1);
+    }, () => {
+        clearInterval(pulseRingIntervalId);
+        pulseRingCollapsed.hide();
+        pulseRingTimeStep = 0;
     });
 
     pulseRing.css({
@@ -197,6 +236,11 @@ $(document).ready(() => {
     });
 
     navbarText.css({
+        "font-size": logoWidthHeight*(1/5)+"px",
+        "visibility": "visible"
+    });
+
+    navbarTextCollapsed.css({
         "font-size": logoWidthHeight*(1/5)+"px",
         "visibility": "visible"
     });
@@ -241,7 +285,8 @@ $(document).ready(() => {
                     pulseRingTimeStep++;
                 } else {
                     clearInterval(pulseRingIntervalId);
-                    pulseRing.remove();
+                    pulseRing.hide();
+                    pulseRingTimeStep = 0;
                 }
             }, 1);
             navbarTextEven.fadeTo(800,1);
@@ -257,9 +302,15 @@ $(document).ready(() => {
         recenterLogo();
         contentFadeIn(currentContentSections);
         if(!isInViewport(navbar[0])) {
-            navbarCollapsed.show();
+            navbarCollapsed.slideDown(50);
+            var ringWidth = logoContPLCollapsed.css("width");
+            ringWidth = parseInt(ringWidth.substring(0, ringWidth.length-2), 10);
+            pulseRingCollapsed.css({
+                "width": ringWidth+"px",
+                "left": ($(window).width()-ringWidth)/2+"px"
+            });
         } else {
-            navbarCollapsed.hide();
+            navbarCollapsed.slideUp(50);
         }
     });
 

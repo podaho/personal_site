@@ -26,6 +26,13 @@ body {
     visibility: hidden;
 }
 
+#pulsing-ring-collapsed {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    display: none;
+}
+
 #logo-p-container {
     right: -100px;
 }
@@ -45,15 +52,16 @@ body {
 
 .navbar-block-collapsed {
     background-color: white;
-    height: 5vh;
+    height: 10vh;
     display: none;
     position: fixed;
     top: 0px;
-    z-index: 10;
+    z-index: 7;
+    width: 100%;
 }
 
 .navbar-block-collapsed .row {
-    line-height: 5vh;
+    line-height: 10vh;
 }
 
 .navbar-link {
