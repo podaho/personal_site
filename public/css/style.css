@@ -46,6 +46,10 @@ body {
     cursor: pointer;
 }
 
+#logo-container-collapsed {
+    cursor: pointer;
+}
+
 #logo-pl-collapsed {
     width: 100%;
 }
@@ -88,6 +92,10 @@ body {
     opacity: 0;
 }
 
+#profile-photo {
+    width: 100%;
+}
+
 #contact-content {
     color: white;
     display: none;
@@ -106,13 +114,26 @@ body {
     opacity: 0;
 }
 
-.resume-section-headers {
+.resume-section-headers, #name-tag {
     font-family: 'Nixie One', cursive;
     font-weight: bolder;
 }
 
-.resume-section-body {
+#title-label, .titles {
+    font-family: 'Nixie One', cursive;
+}
+
+#name-tag {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.resume-section-body, .home-section-body, .contents {
     font-family: 'Titillium Web', sans-serif;
+}
+
+.home-section-body {
+    padding-top: 0;
 }
 
 td {
@@ -155,4 +176,24 @@ td {
 
 #thesis-content .section {
     opacity: 0;
+}
+
+#center-line {
+    position: absolute;
+    width: 4px;
+    background-color: white;
+}
+
+.btn {
+    width: 100%;
+    background-color: white;
+    color: black;
+}
+
+.btn:hover {
+    background-color: lightgray;
+}
+
+.btn:focus {
+    background-color: gray;
 }

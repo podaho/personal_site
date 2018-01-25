@@ -11,15 +11,17 @@
 </head>
 <body>
     <div id="logo-p-container">
-        <img id="logo-p" src="assets/P.svg" alt="P-logo">
+        <img id="logo-p" src="assets/L.svg" alt="P-logo">
     </div>
     <div id="logo-l-container">
-        <img id="logo-l" src="assets/L.svg" alt="L-logo">
+        <img id="logo-l" src="assets/P.svg" alt="L-logo">
     </div>
     <div id="logo-container">
         <img src="assets/PL.svg" alt="PL-logo" id="logo-pl">
     </div>
     <img src="assets/PulseRings.svg" alt="Pulse-Ring" id="pulsing-ring">
+
+    <!-- Navbar -->
     <div class="row navbar-block">
         <div class="col s5">
             <div class="row">
@@ -73,13 +75,39 @@
         </div>
     </div>
 
-    <div id="home-content" class="row">
-        <div class="col m8 offset-m2">
-            <div class="section">
-                <h4>About...</h4>
+    <!-- Home Content -->
+    <div id="home-content">
+        <div class="row center-align">
+            <h1 class="section" id="name-tag">Po Lin</h1>
+            <h5 class="section" id="title-label">Full Stack Software Developer</h5>
+        </div>
+        <div class="row">
+            <div id="center-line"></div>
+            <div class="col m4 offset-m2" id="home-block-left">
+                <div class="section right-align">
+                    <div class="row">
+                        <div class="col m7 offset-m4 right-align">
+                            <img src="assets/Head-Shot.png" alt="Profile-Photo" id="profile-photo">
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div class="col m4" id="home-block-right">
+                <div class="section home-section-body">
+                    <div class="row">
+                        <div class="col offset-m1 m9">
+                                <p>Graduated Trinity University with a Computer Science Bachelor degree with a Minor in Mathematics. Born and raised in Taipei, Taiwan, and attended high school and college in the United States after 14 years in my hometown.</p>
+                                <p>Fluent in both Chinese and English, with conversational skills in Taiwanese and French. Experienced in engineering statics and dynamics, database languages MySQL and MSSQL, experienced programmer of C++, C#, Scala, HTML, CSS, Javascript, React, Redux, and Haskell, with preliminary knowledge in C and Python. Knowledge of cloud-based product testing using Nightwatch.js.</p>
+                                <p>Latest work experience is a Front-End developer internship that focuses on email templates, site debugging and design, product end-to-end testing, and the utilization of IndexedDB with React-Redux. Multiple intern experiences in Teco-Westinghouse Motor Company in the research and development department. Along with 1.5 years of Texas Real Estate Salesperson experience, primarily in leasing and property rental. Interned at the Institute for Information Industry in Taiwan, handling research and survey of newly emerged technological industries and products, and proofreading and translating organization journal submissions. And most importantly a Senior Thesis project conducted with the guidance of Dr. Yu Zhang at Trinity University on Social Network simulations.</p>
+                                <p>My passion is in developing applications that provide an efficient and smooth user experiences. With my background in mathematics and database applications, I am also experienced and interested in data interpretation and organization.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>            
         </div>
     </div>
+
+    <!-- Resume Content -->
     <div id="resume-content" class="row">
         <div class="col m8 offset-m2">
             <div class="section">
@@ -347,13 +375,52 @@
             </div>
         </div>
     </div>
+
+    <!-- Contact Content -->
     <div id="contact-content" class="row">
         <div class="col m8 offset-m2">
-            <div class="section">
-                <h4>Contact...</h4>
+            <div class="row section">
+                <div class="col m6 offset-m3">
+                    <h5 class="titles center-align">Questions, Comments or Concerns?</h5>
+                    <p class="contents center-align">Email: po.grammer.lin@gmail.com</p>
+                    <div class="divider"></div>
+                    <h5 class="titles center-align">Or Checkout One of These Links</h3>
+                    <p class="contents center-align">
+                        <a href="https://github.com/podaho" target="_blank"><img class="media-icon-links" src="assets/Github-Mark.svg" alt="GitHub"></a>
+                        <a href="https://www.linkedin.com/in/po-lin-0b4566b7/" target="_blank"><img class="media-icon-links" src="assets/LinkedIn-Mark.svg" alt="LinkedIn"></a>
+                        <a href="https://codepen.io/plin/" target="_blank"><img class="media-icon-links" src="assets/CodePen-Mark.svg" alt="CodePen"></a>
+                    </p>
+                </div>
+            </div>
+            <div class="row section">
+                <form action="https://formspree.io/po.grammer.lin@gmail.com" method="post" class="col m6 offset-m3">
+                    <div class="input-field">
+                        <input id="name" type="text" class="validate" name="contact-name">
+                        <label for="name">Your Name</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="email" type="text" class="validate" name="contact-email">
+                        <label for="email">Your Email</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="email" type="text" class="validate" name="contact-message-title">
+                        <label for="email">Title</label>
+                    </div>
+                    <div class="input-field">
+                        <textarea id="message" class="materialize-textarea" name="contact-message-content"></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+                    <div class="center-align">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+
+    <!-- Projects Content -->
     <div id="projects-content" class="row">
         <div class="col m8 offset-m2">
             <div class="section">
@@ -361,6 +428,8 @@
             </div>
         </div>
     </div>
+
+    <!-- Thesis Content -->
     <div id="thesis-content" class="row">
         <div class="col m8 offset-m2">
             <div class="section">
@@ -368,6 +437,7 @@
             </div>
         </div>
     </div>
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="main.js"></script>

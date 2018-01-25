@@ -42,6 +42,7 @@ $(document).ready(() => {
     const pulseRingCollapsed = $("#pulsing-ring-collapsed");
     const screenTopOffsetMultiplier = 0.05;
     const screenLogoSizeMultiplier = 1/12;
+    const centerLine = $("#center-line");
 
     // var logoWidthHeight*(1+((pulseRingTimeStep%251)/250));
     // var newPulseRingTopOffset = logoTopOffset-(newPulseRingWidthHeight-logoWidthHeight)/2;
@@ -141,6 +142,8 @@ $(document).ready(() => {
         });
     };
 
+    window.scrollTo(0,0);
+
     logoP.css({
         "width": logoWidthHeight/2+"px",
         "left": logoWidthHeight/4+"px",
@@ -183,46 +186,6 @@ $(document).ready(() => {
         "border-radius": logoWidthHeight/2+"px"
     });
 
-    var pulseRingIntervalId;
-    logoContPL.hover(() => {
-        pulseRing.show();
-        pulseRingIntervalId = setInterval(() => {
-            var newPulseRingWidthHeight = logoWidthHeight*(1+((pulseRingTimeStep%251)/250));
-            var newPulseRingTopOffset = logoTopOffset-(newPulseRingWidthHeight-logoWidthHeight)/2;
-            var newPulseRingTargetPixel = ($(window).width()-newPulseRingWidthHeight)/2;
-            pulseRing.css({
-                "width": newPulseRingWidthHeight+"px",
-                "height": newPulseRingWidthHeight+"px",
-                "top": newPulseRingTopOffset+"px",
-                "left": newPulseRingTargetPixel+"px",
-                "opacity": 1-(pulseRingTimeStep%251)/249
-            });
-            pulseRingTimeStep++;
-        }, 1);
-    }, () => {
-        clearInterval(pulseRingIntervalId);
-        pulseRing.hide();
-        pulseRingTimeStep = 0;
-    });
-    logoContPLCollapsed.hover(() => {
-        pulseRingCollapsed.show();
-        pulseRingIntervalId = setInterval(() => {
-            const pulseRingWidth = logoContPLCollapsed.css("width").substring(0, logoContPLCollapsed.css("width").length-2);
-            var newPulseRingWidth = pulseRingWidth*(1+((pulseRingTimeStep%201)/400));
-            var newPulseRingTargetPixel = ($(window).width()-newPulseRingWidth)/2;
-            pulseRingCollapsed.css({
-                "width": newPulseRingWidth+"px",
-                "left": newPulseRingTargetPixel+"px",
-                "opacity": 1-(pulseRingTimeStep%201)/200
-            });
-            pulseRingTimeStep++;
-        }, 1);
-    }, () => {
-        clearInterval(pulseRingIntervalId);
-        pulseRingCollapsed.hide();
-        pulseRingTimeStep = 0;
-    });
-
     pulseRing.css({
         "top": logoTopOffset+"px",
         "left": $(window).width()/2-logoWidthHeight/2+"px",
@@ -243,6 +206,10 @@ $(document).ready(() => {
     navbarTextCollapsed.css({
         "font-size": logoWidthHeight*(1/5)+"px",
         "visibility": "visible"
+    });
+
+    centerLine.css({
+        "left": $(window).width()/2-2
     });
 
     navbarTextEven.fadeTo(0, 0);
@@ -289,17 +256,34 @@ $(document).ready(() => {
                     pulseRingTimeStep = 0;
                 }
             }, 1);
+            var centerLineStretchTimeStep = 0;
+            var centerLineStretchIntervalId = setInterval(() => {
+                if(centerLineStretchTimeStep < 201) {
+                    centerLine.css("height", $("#home-block-right").height()*(centerLineStretchTimeStep/200)+"px")
+                    centerLineStretchTimeStep++
+                } else {
+                    clearInterval(centerLineStretchIntervalId);
+                }
+            });
             navbarTextEven.fadeTo(800,1);
             var evenCharTimeoutId = setTimeout(() => {
                 navbarTextOdd.fadeTo(800,1);
             }, 400);
             contentFadeIn(currentContentSections);
+            recenterLogo();
         }
     }, 1);
 
     $(window).on("resize scroll", function() {
         //TODO Debounce
         recenterLogo();
+        centerLine.css({
+            "left": $(window).width()/2-2
+        });
+        centerLine.css("height", $("#home-block-right").height()+"px");
+        navbarTextCollapsed.css({
+            "font-size": logoWidthHeight*(1/5)+"px",
+        });
         contentFadeIn(currentContentSections);
         if(!isInViewport(navbar[0])) {
             navbarCollapsed.slideDown(50);
@@ -316,6 +300,7 @@ $(document).ready(() => {
 
     homeLink.click(() => {
         //TODO Fade all elements out to opacity 0 to float in once loaded
+        window.scrollTo(0, 0);
         contentResetFade(currentContentSections);
         currentView.hide();
         currentView = $("#home-content");
@@ -327,6 +312,7 @@ $(document).ready(() => {
 
     resumeLink.click(() => {
         //TODO Fade all elements out to opacity 0 to float in once loaded
+        window.scrollTo(0, 0);
         contentResetFade(currentContentSections);
         currentView.hide();
         currentView = $("#resume-content");
@@ -338,6 +324,7 @@ $(document).ready(() => {
 
     contactLink.click(() => {
         //TODO Fade all elements out to opacity 0 to float in once loaded
+        window.scrollTo(0, 0);
         contentResetFade(currentContentSections);
         currentView.hide();
         currentView = $("#contact-content");
@@ -349,6 +336,7 @@ $(document).ready(() => {
 
     projectsLink.click(() => {
         //TODO Fade all elements out to opacity 0 to float in once loaded
+        window.scrollTo(0, 0);
         contentResetFade(currentContentSections);
         currentView.hide();
         currentView = $("#projects-content");
@@ -360,6 +348,7 @@ $(document).ready(() => {
 
     thesisLink.click(() => {
         //TODO Fade all elements out to opacity 0 to float in once loaded
+        window.scrollTo(0, 0);
         contentResetFade(currentContentSections);
         currentView.hide();
         currentView = $("#thesis-content");
@@ -367,5 +356,46 @@ $(document).ready(() => {
         currentView.show();
         contentFadeIn(currentContentSections);
         recenterLogo();
+    });
+
+    var pulseRingIntervalId;
+    logoContPL.hover(() => {
+        pulseRing.show();
+        pulseRingIntervalId = setInterval(() => {
+            var newPulseRingWidthHeight = logoWidthHeight*(1+((pulseRingTimeStep%251)/250));
+            var newPulseRingTopOffset = logoTopOffset-(newPulseRingWidthHeight-logoWidthHeight)/2;
+            var newPulseRingTargetPixel = ($(window).width()-newPulseRingWidthHeight)/2;
+            pulseRing.css({
+                "width": newPulseRingWidthHeight+"px",
+                "height": newPulseRingWidthHeight+"px",
+                "top": newPulseRingTopOffset+"px",
+                "left": newPulseRingTargetPixel+"px",
+                "opacity": 1-(pulseRingTimeStep%251)/249
+            });
+            pulseRingTimeStep++;
+        }, 1);
+    }, () => {
+        clearInterval(pulseRingIntervalId);
+        pulseRing.hide();
+        pulseRingTimeStep = 0;
+    });
+
+    logoContPLCollapsed.hover(() => {
+        pulseRingCollapsed.show();
+        pulseRingIntervalId = setInterval(() => {
+            const pulseRingWidth = logoContPLCollapsed.css("width").substring(0, logoContPLCollapsed.css("width").length-2);
+            var newPulseRingWidth = pulseRingWidth*(1+((pulseRingTimeStep%201)/400));
+            var newPulseRingTargetPixel = ($(window).width()-newPulseRingWidth)/2;
+            pulseRingCollapsed.css({
+                "width": newPulseRingWidth+"px",
+                "left": newPulseRingTargetPixel+"px",
+                "opacity": 1-(pulseRingTimeStep%201)/200
+            });
+            pulseRingTimeStep++;
+        }, 1);
+    }, () => {
+        clearInterval(pulseRingIntervalId);
+        pulseRingCollapsed.hide();
+        pulseRingTimeStep = 0;
     });
 });
