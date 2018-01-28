@@ -197,3 +197,34 @@ td {
 .btn:focus {
     background-color: gray;
 }
+
+i {
+    vertical-align: middle;
+}
+
+.email-link {
+    color: white;
+    cursor: pointer;
+}
+
+.email-link:hover {
+    color: gray;
+}
+
+.email-link:focus {
+    color: darkgrey;
+}
+
+.collapsible-header {
+    font-family: 'Nixie One', cursive;
+    font-weight: bolder;
+    color: black;
+}
+
+.collapsible-body {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+th {
+    padding: 5px;
+}

@@ -308,6 +308,15 @@ $(document).ready(() => {
         currentView.show();
         contentFadeIn(currentContentSections);
         recenterLogo();
+        var centerLineStretchTimeStep = 0;
+        var centerLineStretchIntervalId = setInterval(() => {
+            if(centerLineStretchTimeStep < 201) {
+                centerLine.css("height", $("#home-block-right").height()*(centerLineStretchTimeStep/200)+"px")
+                centerLineStretchTimeStep++
+            } else {
+                clearInterval(centerLineStretchIntervalId);
+            }
+        });
     });
 
     resumeLink.click(() => {
@@ -356,6 +365,30 @@ $(document).ready(() => {
         currentView.show();
         contentFadeIn(currentContentSections);
         recenterLogo();
+    });
+
+    $("#contact-form").submit((e) => {
+        if($("form #name").val() == "" || $("form #email").val() == "" || $("form #title").val() == "" || $("form #message").val() == "") {
+            e.preventDefault();
+            $("#message-form-error").text("Oops! Looks like some of the fields below are empty!")
+        } else {
+            e.preventDefault();
+            $.ajax({
+                url: 'https://formspree.io/po.grammer.lin@gmail.com',
+                method: 'POST',
+                data: $(this).serialize(),
+                dataType: 'json',
+                beforeSend: function() {
+                    $("#message-form-error").text("Sending...");
+                },
+                success: function(data) {
+                    $("#message-form-error").text("Thank you! Your message is sent!");
+                },
+                error: function(err) {
+                    $("#message-form-error").text("There was an error submitting the form...");
+                }
+            });
+        }
     });
 
     var pulseRingIntervalId;
