@@ -217,7 +217,7 @@ i {
 
 .collapsible-header {
     font-family: 'Nixie One', cursive;
-    font-weight: bolder;
+    font-weight: bolder !important;
     color: black;
 }
 
@@ -227,4 +227,14 @@ i {
 
 th {
     padding: 5px;
+}
+
+.card-title {
+    font-family: 'Nixie One', cursive !important;
+    font-weight: bolder !important;
+}
+
+.project-text {
+    font-family: 'Titillium Web', sans-serif;
+    color: black;
 }
