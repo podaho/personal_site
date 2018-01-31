@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Nixie+One|Titillium+Web');
 
 body {
-    background-color: black;
+    background-color: #f4f4ff;
 }
 
 #logo-p, #logo-l, #logo-pl {
@@ -17,13 +17,14 @@ body {
 }
 
 #logo-p-container, #logo-l-container, #logo-container {
-    background-color: white;
+    background-color: #27476e;
     position: absolute;
 }
 
 #pulsing-ring {
     position: absolute;
     visibility: hidden;
+    z-index: -1;
 }
 
 #pulsing-ring-collapsed {
@@ -55,7 +56,7 @@ body {
 }
 
 .navbar-block-collapsed {
-    background-color: white;
+    background-color: #27476e;
     height: 10vh;
     display: none;
     position: fixed;
@@ -69,23 +70,26 @@ body {
 }
 
 .navbar-link {
-    color: white;
+    color: #27476e;
     font-family: 'Nixie One', cursive;
     visibility: hidden;
+    font-weight: 600;
 }
 
 .navbar-link-collapsed {
-    color: black;
+    color: #daa520;
     font-family: 'Nixie One', cursive;
+    font-weight: 600;
 }
 
 .navbar-link-div:hover, .navbar-link-div-collapsed:hover {
-    font-weight: 900;
+    font-weight: 900 !important;
+    text-decoration: underline;
     cursor: pointer;
 }
 
 #home-content {
-    color: white;
+    color: #006992;
 }
 
 #home-content .section {
@@ -97,7 +101,7 @@ body {
 }
 
 #contact-content {
-    color: white;
+    color: #006992;
     display: none;
 }
 
@@ -106,7 +110,7 @@ body {
 }
 
 #resume-content {
-    color: white;
+    color: #006992;
     display: none;
 }
 
@@ -117,10 +121,13 @@ body {
 .resume-section-headers, #name-tag {
     font-family: 'Nixie One', cursive;
     font-weight: bolder;
+    color: #27476e;
 }
 
 #title-label, .titles {
     font-family: 'Nixie One', cursive;
+    font-weight: 600;
+    color: #27476e;
 }
 
 #name-tag {
@@ -146,22 +153,22 @@ td {
 
 .media-icon-links {
     width: 40px;
-    color: white;
+    color: #006992;
     padding: 5px;
 }
 
 .left-align>.resume-section-body {
-    border-left: 3px solid white;
+    border-left: 3px solid #daa520;
     padding-left: 20px;
 }
 
 .right-align>.resume-section-body {
-    border-right: 3px solid white;
+    border-right: 3px solid #daa520;
     padding-right: 20px;
 }
 
 #projects-content {
-    color: white;
+    color: #27476e;
     display: none;
 }
 
@@ -170,7 +177,7 @@ td {
 }
 
 #thesis-content {
-    color: white;
+    color: #006992;
     display: none;
 }
 
@@ -181,17 +188,17 @@ td {
 #center-line {
     position: absolute;
     width: 4px;
-    background-color: white;
+    background-color: #27476e;
 }
 
 .btn {
     width: 100%;
-    background-color: white;
-    color: black;
+    background-color: #27476e;
+    color: #daa520;
 }
 
 .btn:hover {
-    background-color: lightgray;
+    background-color: #006992;
 }
 
 .btn:focus {
@@ -203,7 +210,7 @@ i {
 }
 
 .email-link {
-    color: white;
+    color: #daa520;
     cursor: pointer;
 }
 
@@ -217,8 +224,12 @@ i {
 
 .collapsible-header {
     font-family: 'Nixie One', cursive;
-    font-weight: bolder !important;
-    color: black;
+    color: #daa520;
+    background-color: #27476e;
+}
+
+.collapsible-header>h5 {
+    font-weight: 600 !important;
 }
 
 .collapsible-body {
@@ -236,5 +247,31 @@ th {
 
 .project-text {
     font-family: 'Titillium Web', sans-serif;
-    color: black;
+    color: #f4f4ff;
+}
+
+.download-link-btn {
+    color: #daa520; 
+}
+
+#thesis-github-text {
+    position: relative;
+    top: -16px;
+}
+
+.divider {
+    background-color: #daa520;
+}
+
+thead {
+    border-color: #daa520;
+    color: #27476e;
+}
+
+.card .card-reveal, .card .card-content {
+    background-color: #27476e !important;
+}
+
+.card-title {
+    color: #daa520;
 }

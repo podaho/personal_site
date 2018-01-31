@@ -10,7 +10,7 @@ const isInViewport = (elem) => {
     //console.log("elemTop: "+elemTop+"; elemBottom: "+elemBottom+"; viewPortTop: "+viewportTop+"; viewPortBottom: "+viewportBottom)
     return elemBottom > viewportTop && elemTop < viewportBottom;
 };
-
+ 
 $(document).ready(() => {
     var currentView = $("#home-content");
     var currentContentSections = $("#home-content .section");
@@ -299,7 +299,10 @@ $(document).ready(() => {
     });
 
     homeLink.click(() => {
-        //TODO Fade all elements out to opacity 0 to float in once loaded
+        resumeLink.css("text-decoration","none");
+        contactLink.css("text-decoration","none");
+        projectsLink.css("text-decoration","none");
+        thesisLink.css("text-decoration","none");
         window.scrollTo(0, 0);
         contentResetFade(currentContentSections);
         currentView.hide();
@@ -320,7 +323,10 @@ $(document).ready(() => {
     });
 
     resumeLink.click(() => {
-        //TODO Fade all elements out to opacity 0 to float in once loaded
+        resumeLink.css("text-decoration","underline");
+        contactLink.css("text-decoration","none");
+        projectsLink.css("text-decoration","none");
+        thesisLink.css("text-decoration","none");
         window.scrollTo(0, 0);
         contentResetFade(currentContentSections);
         currentView.hide();
@@ -332,7 +338,10 @@ $(document).ready(() => {
     });
 
     contactLink.click(() => {
-        //TODO Fade all elements out to opacity 0 to float in once loaded
+        resumeLink.css("text-decoration","none");
+        contactLink.css("text-decoration","underline");
+        projectsLink.css("text-decoration","none");
+        thesisLink.css("text-decoration","none");
         window.scrollTo(0, 0);
         contentResetFade(currentContentSections);
         currentView.hide();
@@ -345,6 +354,10 @@ $(document).ready(() => {
 
     projectsLink.click(() => {
         //TODO Fade all elements out to opacity 0 to float in once loaded
+        resumeLink.css("text-decoration","none");
+        contactLink.css("text-decoration","none");
+        projectsLink.css("text-decoration","underline");
+        thesisLink.css("text-decoration","none");
         window.scrollTo(0, 0);
         contentResetFade(currentContentSections);
         currentView.hide();
@@ -356,6 +369,10 @@ $(document).ready(() => {
     });
 
     thesisLink.click(() => {
+        resumeLink.css("text-decoration","none");
+        contactLink.css("text-decoration","none");
+        projectsLink.css("text-decoration","none");
+        thesisLink.css("text-decoration","underline");
         //TODO Fade all elements out to opacity 0 to float in once loaded
         window.scrollTo(0, 0);
         contentResetFade(currentContentSections);
