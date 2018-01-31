@@ -275,3 +275,53 @@ thead {
 .card-title {
     color: #daa520;
 }
+
+/* Mobile */
+
+#logo-pl-mobile {
+    width: 100%;
+}
+
+#pulsing-ring-mobile {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    visibility: hidden;
+}
+
+#home-content-mobile, #resume-content-mobile, #projects-content-mobile, #thesis-content-mobile, #contact-content-mobile {
+
+}
+
+#resume-content-mobile, #projects-content-mobile, #thesis-content-mobile, #contact-content-mobile {
+    opacity: 0;
+    display: none;
+}
+
+.no-padding-bottom {
+    padding-bottom: 0;
+}
+
+.no-padding-top {
+    padding-top: 0;
+}
+
+.no-margin-bottom {
+    margin-bottom: 0;
+}
+
+.no-margin-top {
+    margin-top: 0;
+}
+
+#projects-content-mobile {
+    padding: 20px;
+}
+
+.nav-wrapper {
+    background-color: #27476e;
+}
+
+.side-nav li>a, .side-nav li>a>i {
+    color: #006992 !important;
+}

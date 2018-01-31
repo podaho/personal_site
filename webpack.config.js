@@ -30,6 +30,10 @@ module.exports = {
     ]
   },
 
+  externals: {
+    jquery: 'jQuery'
+  },
+
   // allows us to see how the transpiled js relates to the untranspiled js
   devtool: 'source-map',
 
