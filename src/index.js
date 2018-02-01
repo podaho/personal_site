@@ -84,63 +84,97 @@ $(document).ready(() => {
         });
 
         $(window).on("resize scroll", function() {
-            // console.log($(window).width()+" is med or larger");
-            var currentView = $("#home-content");
-            var currentContentSections = $("#home-content .section");
-            const homeLink = $("#logo-container, #logo-container-collapsed");
-            const resumeLink = $("#resume-link, #resume-link-collapsed");
-            const contactLink = $("#contact-link, #contact-link-collapsed");
-            const projectsLink = $("#projects-link, #projects-link-collapsed");
-            const thesisLink = $("#thesis-link, #thesis-link-collapsed");
-            const logoPL = $("#logo-pl");
-            const logoContP = $("#logo-p-container");
-            const logoContL = $("#logo-l-container");
-            const logoContPL = $("#logo-container");
-            const logoContPLCollapsed = $("#logo-container-collapsed");
-            const navbar = $(".navbar-block");
-            const navbarCollapsed = $(".navbar-block-collapsed");
-            const navbarText = $(".navbar-link");
-            const navbarTextCollapsed = $(".navbar-link-collapsed");
-            const navbarTextEven = $(".navbar-link>span:nth-child(2n)");
-            const navbarTextOdd = $(".navbar-link>span:nth-child(2n+1)");
-            const pulseRingCollapsed = $("#pulsing-ring-collapsed");
-            const screenTopOffsetMultiplier = 0.05;
-            const screenLogoSizeMultiplier = 1/12;
-            const centerLine = $("#center-line");
-            var logoTopOffset = $(window).height()*screenTopOffsetMultiplier;
-            var logoWidthHeight = $(window).width()*screenLogoSizeMultiplier;
-            var targetPixel = $(window).width()/2-logoWidthHeight/2;
-            var logoMovementTimeStep = 0;
-            var pulseRingTimeStepMobile = 0;
-            const timeMultiplier = 300;
-            var logoPulseHalt = true;
-            const logoFadeOut = () => {
-                if(!logoPulseHalt) {
-                    logoContPL.fadeTo(1000, 0.4, logoFadeIn);
-                }
-            };
-            const logoFadeIn = () => {
-                if(!logoPulseHalt) {
-                    logoContPL.fadeTo(1000, 1, logoFadeOut);
-                }
-            };
-            const contentFadeIn = (sectionsSelector) => {
-                for(let i = 0; i < sectionsSelector.length; i++) {
-                    if(isInViewport(sectionsSelector[i])) {
-                        $(sectionsSelector[i]).fadeTo(700, 1);
+            if($(window).width() > 600) {
+                // console.log($(window).width()+" is med or larger");
+                var currentView = $("#home-content");
+                var currentContentSections = $("#home-content .section");
+                const homeLink = $("#logo-container, #logo-container-collapsed");
+                const resumeLink = $("#resume-link, #resume-link-collapsed");
+                const contactLink = $("#contact-link, #contact-link-collapsed");
+                const projectsLink = $("#projects-link, #projects-link-collapsed");
+                const thesisLink = $("#thesis-link, #thesis-link-collapsed");
+                const logoPL = $("#logo-pl");
+                const logoContP = $("#logo-p-container");
+                const logoContL = $("#logo-l-container");
+                const logoContPL = $("#logo-container");
+                const logoContPLCollapsed = $("#logo-container-collapsed");
+                const navbar = $(".navbar-block");
+                const navbarCollapsed = $(".navbar-block-collapsed");
+                const navbarText = $(".navbar-link");
+                const navbarTextCollapsed = $(".navbar-link-collapsed");
+                const navbarTextEven = $(".navbar-link>span:nth-child(2n)");
+                const navbarTextOdd = $(".navbar-link>span:nth-child(2n+1)");
+                const pulseRingCollapsed = $("#pulsing-ring-collapsed");
+                const screenTopOffsetMultiplier = 0.05;
+                const screenLogoSizeMultiplier = 1/12;
+                const centerLine = $("#center-line");
+                var logoTopOffset = $(window).height()*screenTopOffsetMultiplier;
+                var logoWidthHeight = $(window).width()*screenLogoSizeMultiplier;
+                var targetPixel = $(window).width()/2-logoWidthHeight/2;
+                var logoMovementTimeStep = 0;
+                var pulseRingTimeStepMobile = 0;
+                const timeMultiplier = 300;
+                var logoPulseHalt = true;
+                const logoFadeOut = () => {
+                    if(!logoPulseHalt) {
+                        logoContPL.fadeTo(1000, 0.4, logoFadeIn);
                     }
-                }
-            };
-            const contentResetFade = (sectionsSelector) => {
-                for(let i = 0; i < sectionsSelector.length; i++) {
-                    $(sectionsSelector[i]).css("opacity", "0");
-                }
-            };
-            const recenterLogo = () => {
-                logoTopOffset = $(window).height()*screenTopOffsetMultiplier;
-                logoWidthHeight = $(window).width()*screenLogoSizeMultiplier;
-                targetPixel = $(window).width()/2-logoWidthHeight/2;
-                //console.log("width of window is: "+$(window).width()+"; logo width is: "+logoWidthHeight+"; centering pixel is: "+targetPixel);
+                };
+                const logoFadeIn = () => {
+                    if(!logoPulseHalt) {
+                        logoContPL.fadeTo(1000, 1, logoFadeOut);
+                    }
+                };
+                const contentFadeIn = (sectionsSelector) => {
+                    for(let i = 0; i < sectionsSelector.length; i++) {
+                        if(isInViewport(sectionsSelector[i])) {
+                            $(sectionsSelector[i]).fadeTo(700, 1);
+                        }
+                    }
+                };
+                const contentResetFade = (sectionsSelector) => {
+                    for(let i = 0; i < sectionsSelector.length; i++) {
+                        $(sectionsSelector[i]).css("opacity", "0");
+                    }
+                };
+                const recenterLogo = () => {
+                    logoTopOffset = $(window).height()*screenTopOffsetMultiplier;
+                    logoWidthHeight = $(window).width()*screenLogoSizeMultiplier;
+                    targetPixel = $(window).width()/2-logoWidthHeight/2;
+                    //console.log("width of window is: "+$(window).width()+"; logo width is: "+logoWidthHeight+"; centering pixel is: "+targetPixel);
+
+                    logoPL.css({
+                        "width": logoWidthHeight/2+"px",
+                        "left": logoWidthHeight/4+"px",
+                        "top": logoWidthHeight/4+"px"
+                    });
+
+                    logoContPL.css({
+                        "top": logoTopOffset+"px",
+                        "left": targetPixel+"px",
+                        "width": logoWidthHeight+"px",
+                        "height": logoWidthHeight+"px",
+                        "border-radius": logoWidthHeight/2+"px"
+                    });
+
+                    pulseRing.css({
+                        "top": logoTopOffset+"px",
+                        "left": targetPixel+"px",
+                        "width": logoWidthHeight+"px",
+                        "height": logoWidthHeight+"px",
+                        "border-radius": logoWidthHeight/2+"px"
+                    });
+
+                    navbar.css({
+                        "margin": logoTopOffset+logoWidthHeight*(1/3)+"px"
+                    });
+
+                    navbarText.css({
+                        "font-size": logoWidthHeight*(1/5)+"px"
+                    });
+                };
+
+                window.scrollTo(0,0);
 
                 logoPL.css({
                     "width": logoWidthHeight/2+"px",
@@ -150,7 +184,7 @@ $(document).ready(() => {
 
                 logoContPL.css({
                     "top": logoTopOffset+"px",
-                    "left": targetPixel+"px",
+                    "left": $(window).width()/2-logoWidthHeight/2+"px",
                     "width": logoWidthHeight+"px",
                     "height": logoWidthHeight+"px",
                     "border-radius": logoWidthHeight/2+"px"
@@ -158,7 +192,7 @@ $(document).ready(() => {
 
                 pulseRing.css({
                     "top": logoTopOffset+"px",
-                    "left": targetPixel+"px",
+                    "left": $(window).width()/2-logoWidthHeight/2+"px",
                     "width": logoWidthHeight+"px",
                     "height": logoWidthHeight+"px",
                     "border-radius": logoWidthHeight/2+"px"
@@ -169,219 +203,187 @@ $(document).ready(() => {
                 });
 
                 navbarText.css({
-                    "font-size": logoWidthHeight*(1/5)+"px"
+                    "font-size": logoWidthHeight*(1/5)+"px",
+                    "visibility": "visible"
                 });
-            };
 
-            window.scrollTo(0,0);
-
-            logoPL.css({
-                "width": logoWidthHeight/2+"px",
-                "left": logoWidthHeight/4+"px",
-                "top": logoWidthHeight/4+"px"
-            });
-
-            logoContPL.css({
-                "top": logoTopOffset+"px",
-                "left": $(window).width()/2-logoWidthHeight/2+"px",
-                "width": logoWidthHeight+"px",
-                "height": logoWidthHeight+"px",
-                "border-radius": logoWidthHeight/2+"px"
-            });
-
-            pulseRing.css({
-                "top": logoTopOffset+"px",
-                "left": $(window).width()/2-logoWidthHeight/2+"px",
-                "width": logoWidthHeight+"px",
-                "height": logoWidthHeight+"px",
-                "border-radius": logoWidthHeight/2+"px"
-            });
-
-            navbar.css({
-                "margin": logoTopOffset+logoWidthHeight*(1/3)+"px"
-            });
-
-            navbarText.css({
-                "font-size": logoWidthHeight*(1/5)+"px",
-                "visibility": "visible"
-            });
-
-            navbarTextCollapsed.css({
-                "font-size": logoWidthHeight*(1/5)+"px",
-                "visibility": "visible"
-            });
-
-            centerLine.css({
-                "left": $(window).width()/2-2
-            });
-
-            navbarTextEven.fadeTo(0, 0);
-            navbarTextOdd.fadeTo(0, 0);
-
-            logoContP.remove();
-            logoContL.remove();
-            logoContPL.css("visibility", "visible");
-            centerLine.css("height", $("#home-block-right").height()+"px")
-            navbarTextEven.css("opacity", "1");
-            navbarTextOdd.css("opacity", "1");
-            contentFadeIn(currentContentSections);
-            recenterLogo();
-
-            $(window).on("resize scroll", function() {
-                //TODO Debounce
-                recenterLogo();
-            });
-
-            homeLink.click(() => {
-                resumeLink.css("text-decoration","none");
-                contactLink.css("text-decoration","none");
-                projectsLink.css("text-decoration","none");
-                thesisLink.css("text-decoration","none");
-                window.scrollTo(0, 0);
-                contentResetFade(currentContentSections);
-                currentView.hide();
-                currentView = $("#home-content");
-                currentContentSections = $("#home-content .section");
-                currentView.show();
-                contentFadeIn(currentContentSections);
-                recenterLogo();
-                var centerLineStretchTimeStep = 0;
-                var centerLineStretchIntervalId = setInterval(() => {
-                    if(centerLineStretchTimeStep < 201) {
-                        centerLine.css("height", $("#home-block-right").height()*(centerLineStretchTimeStep/200)+"px")
-                        centerLineStretchTimeStep++
-                    } else {
-                        clearInterval(centerLineStretchIntervalId);
-                    }
+                navbarTextCollapsed.css({
+                    "font-size": logoWidthHeight*(1/5)+"px",
+                    "visibility": "visible"
                 });
-            });
 
-            resumeLink.click(() => {
-                resumeLink.css("text-decoration","underline");
-                contactLink.css("text-decoration","none");
-                projectsLink.css("text-decoration","none");
-                thesisLink.css("text-decoration","none");
-                window.scrollTo(0, 0);
-                contentResetFade(currentContentSections);
-                currentView.hide();
-                currentView = $("#resume-content");
-                currentContentSections = $("#resume-content .section");
-                currentView.show();
+                centerLine.css({
+                    "left": $(window).width()/2-2
+                });
+
+                navbarTextEven.fadeTo(0, 0);
+                navbarTextOdd.fadeTo(0, 0);
+
+                logoContP.remove();
+                logoContL.remove();
+                logoContPL.css("visibility", "visible");
+                centerLine.css("height", $("#home-block-right").height()+"px")
+                navbarTextEven.css("opacity", "1");
+                navbarTextOdd.css("opacity", "1");
                 contentFadeIn(currentContentSections);
                 recenterLogo();
-            });
 
-            contactLink.click(() => {
-                resumeLink.css("text-decoration","none");
-                contactLink.css("text-decoration","underline");
-                projectsLink.css("text-decoration","none");
-                thesisLink.css("text-decoration","none");
-                window.scrollTo(0, 0);
-                contentResetFade(currentContentSections);
-                currentView.hide();
-                currentView = $("#contact-content");
-                currentContentSections = $("#contact-content .section");
-                currentView.show();
-                contentFadeIn(currentContentSections);
-                recenterLogo();
-            });
+                $(window).on("resize scroll", function() {
+                    //TODO Debounce
+                    recenterLogo();
+                });
 
-            projectsLink.click(() => {
-                //TODO Fade all elements out to opacity 0 to float in once loaded
-                resumeLink.css("text-decoration","none");
-                contactLink.css("text-decoration","none");
-                projectsLink.css("text-decoration","underline");
-                thesisLink.css("text-decoration","none");
-                window.scrollTo(0, 0);
-                contentResetFade(currentContentSections);
-                currentView.hide();
-                currentView = $("#projects-content");
-                currentContentSections = $("#projects-content .section");
-                currentView.show();
-                contentFadeIn(currentContentSections);
-                recenterLogo();
-            });
-
-            thesisLink.click(() => {
-                resumeLink.css("text-decoration","none");
-                contactLink.css("text-decoration","none");
-                projectsLink.css("text-decoration","none");
-                thesisLink.css("text-decoration","underline");
-                //TODO Fade all elements out to opacity 0 to float in once loaded
-                window.scrollTo(0, 0);
-                contentResetFade(currentContentSections);
-                currentView.hide();
-                currentView = $("#thesis-content");
-                currentContentSections = $("#thesis-content .section");
-                currentView.show();
-                contentFadeIn(currentContentSections);
-                recenterLogo();
-            });
-
-            $("#contact-form").submit((e) => {
-                if($("form #name").val() == "" || $("form #email").val() == "" || $("form #title").val() == "" || $("form #message").val() == "") {
-                    e.preventDefault();
-                    $("#message-form-error").text("Oops! Looks like some of the fields below are empty!")
-                } else {
-                    e.preventDefault();
-                    $.ajax({
-                        url: 'https://formspree.io/po.grammer.lin@gmail.com',
-                        method: 'POST',
-                        data: $(this).serialize(),
-                        dataType: 'json',
-                        beforeSend: function() {
-                            $("#message-form-error").text("Sending...");
-                        },
-                        success: function(data) {
-                            $("#message-form-error").text("Thank you! Your message is sent!");
-                        },
-                        error: function(err) {
-                            $("#message-form-error").text("There was an error submitting the form...");
+                homeLink.click(() => {
+                    resumeLink.css("text-decoration","none");
+                    contactLink.css("text-decoration","none");
+                    projectsLink.css("text-decoration","none");
+                    thesisLink.css("text-decoration","none");
+                    window.scrollTo(0, 0);
+                    contentResetFade(currentContentSections);
+                    currentView.hide();
+                    currentView = $("#home-content");
+                    currentContentSections = $("#home-content .section");
+                    currentView.show();
+                    contentFadeIn(currentContentSections);
+                    recenterLogo();
+                    var centerLineStretchTimeStep = 0;
+                    var centerLineStretchIntervalId = setInterval(() => {
+                        if(centerLineStretchTimeStep < 201) {
+                            centerLine.css("height", $("#home-block-right").height()*(centerLineStretchTimeStep/200)+"px")
+                            centerLineStretchTimeStep++
+                        } else {
+                            clearInterval(centerLineStretchIntervalId);
                         }
                     });
-                }
-            });
+                });
 
-            var pulseRingIntervalIdMobile;
-            logoContPL.hover(() => {
-                pulseRing.show();
-                pulseRingIntervalIdMobile = setInterval(() => {
-                    var newPulseRingWidthHeight = logoWidthHeight*(1+((pulseRingTimeStepMobile%251)/250));
-                    var newPulseRingTopOffset = logoTopOffset-(newPulseRingWidthHeight-logoWidthHeight)/2;
-                    var newPulseRingTargetPixel = ($(window).width()-newPulseRingWidthHeight)/2;
-                    pulseRing.css({
-                        "width": newPulseRingWidthHeight+"px",
-                        "height": newPulseRingWidthHeight+"px",
-                        "top": newPulseRingTopOffset+"px",
-                        "left": newPulseRingTargetPixel+"px",
-                        "opacity": 1-(pulseRingTimeStepMobile%251)/249
-                    });
-                    pulseRingTimeStepMobile++;
-                }, 1);
-            }, () => {
-                clearInterval(pulseRingIntervalIdMobile);
-                pulseRing.hide();
-                pulseRingTimeStepMobile = 0;
-            });
+                resumeLink.click(() => {
+                    resumeLink.css("text-decoration","underline");
+                    contactLink.css("text-decoration","none");
+                    projectsLink.css("text-decoration","none");
+                    thesisLink.css("text-decoration","none");
+                    window.scrollTo(0, 0);
+                    contentResetFade(currentContentSections);
+                    currentView.hide();
+                    currentView = $("#resume-content");
+                    currentContentSections = $("#resume-content .section");
+                    currentView.show();
+                    contentFadeIn(currentContentSections);
+                    recenterLogo();
+                });
 
-            logoContPLCollapsed.hover(() => {
-                pulseRingCollapsed.show();
-                pulseRingIntervalIdMobile = setInterval(() => {
-                    const pulseRingWidth = logoContPLCollapsed.css("width").substring(0, logoContPLCollapsed.css("width").length-2);
-                    var newPulseRingWidth = pulseRingWidth*(1+((pulseRingTimeStepMobile%201)/400));
-                    var newPulseRingTargetPixel = ($(window).width()-newPulseRingWidth)/2;
-                    pulseRingCollapsed.css({
-                        "width": newPulseRingWidth+"px",
-                        "left": newPulseRingTargetPixel+"px",
-                        "opacity": 1-(pulseRingTimeStepMobile%201)/200
-                    });
-                    pulseRingTimeStepMobile++;
-                }, 1);
-            }, () => {
-                clearInterval(pulseRingIntervalIdMobile);
-                pulseRingCollapsed.hide();
-                pulseRingTimeStepMobile = 0;
-            });
+                contactLink.click(() => {
+                    resumeLink.css("text-decoration","none");
+                    contactLink.css("text-decoration","underline");
+                    projectsLink.css("text-decoration","none");
+                    thesisLink.css("text-decoration","none");
+                    window.scrollTo(0, 0);
+                    contentResetFade(currentContentSections);
+                    currentView.hide();
+                    currentView = $("#contact-content");
+                    currentContentSections = $("#contact-content .section");
+                    currentView.show();
+                    contentFadeIn(currentContentSections);
+                    recenterLogo();
+                });
+
+                projectsLink.click(() => {
+                    //TODO Fade all elements out to opacity 0 to float in once loaded
+                    resumeLink.css("text-decoration","none");
+                    contactLink.css("text-decoration","none");
+                    projectsLink.css("text-decoration","underline");
+                    thesisLink.css("text-decoration","none");
+                    window.scrollTo(0, 0);
+                    contentResetFade(currentContentSections);
+                    currentView.hide();
+                    currentView = $("#projects-content");
+                    currentContentSections = $("#projects-content .section");
+                    currentView.show();
+                    contentFadeIn(currentContentSections);
+                    recenterLogo();
+                });
+
+                thesisLink.click(() => {
+                    resumeLink.css("text-decoration","none");
+                    contactLink.css("text-decoration","none");
+                    projectsLink.css("text-decoration","none");
+                    thesisLink.css("text-decoration","underline");
+                    //TODO Fade all elements out to opacity 0 to float in once loaded
+                    window.scrollTo(0, 0);
+                    contentResetFade(currentContentSections);
+                    currentView.hide();
+                    currentView = $("#thesis-content");
+                    currentContentSections = $("#thesis-content .section");
+                    currentView.show();
+                    contentFadeIn(currentContentSections);
+                    recenterLogo();
+                });
+
+                $("#contact-form").submit((e) => {
+                    if($("form #name").val() == "" || $("form #email").val() == "" || $("form #title").val() == "" || $("form #message").val() == "") {
+                        e.preventDefault();
+                        $("#message-form-error").text("Oops! Looks like some of the fields below are empty!")
+                    } else {
+                        e.preventDefault();
+                        $.ajax({
+                            url: 'https://formspree.io/po.grammer.lin@gmail.com',
+                            method: 'POST',
+                            data: $(this).serialize(),
+                            dataType: 'json',
+                            beforeSend: function() {
+                                $("#message-form-error").text("Sending...");
+                            },
+                            success: function(data) {
+                                $("#message-form-error").text("Thank you! Your message is sent!");
+                            },
+                            error: function(err) {
+                                $("#message-form-error").text("There was an error submitting the form...");
+                            }
+                        });
+                    }
+                });
+
+                var pulseRingIntervalIdMobile;
+                logoContPL.hover(() => {
+                    pulseRing.show();
+                    pulseRingIntervalIdMobile = setInterval(() => {
+                        var newPulseRingWidthHeight = logoWidthHeight*(1+((pulseRingTimeStepMobile%251)/250));
+                        var newPulseRingTopOffset = logoTopOffset-(newPulseRingWidthHeight-logoWidthHeight)/2;
+                        var newPulseRingTargetPixel = ($(window).width()-newPulseRingWidthHeight)/2;
+                        pulseRing.css({
+                            "width": newPulseRingWidthHeight+"px",
+                            "height": newPulseRingWidthHeight+"px",
+                            "top": newPulseRingTopOffset+"px",
+                            "left": newPulseRingTargetPixel+"px",
+                            "opacity": 1-(pulseRingTimeStepMobile%251)/249
+                        });
+                        pulseRingTimeStepMobile++;
+                    }, 1);
+                }, () => {
+                    clearInterval(pulseRingIntervalIdMobile);
+                    pulseRing.hide();
+                    pulseRingTimeStepMobile = 0;
+                });
+
+                logoContPLCollapsed.hover(() => {
+                    pulseRingCollapsed.show();
+                    pulseRingIntervalIdMobile = setInterval(() => {
+                        const pulseRingWidth = logoContPLCollapsed.css("width").substring(0, logoContPLCollapsed.css("width").length-2);
+                        var newPulseRingWidth = pulseRingWidth*(1+((pulseRingTimeStepMobile%201)/400));
+                        var newPulseRingTargetPixel = ($(window).width()-newPulseRingWidth)/2;
+                        pulseRingCollapsed.css({
+                            "width": newPulseRingWidth+"px",
+                            "left": newPulseRingTargetPixel+"px",
+                            "opacity": 1-(pulseRingTimeStepMobile%201)/200
+                        });
+                        pulseRingTimeStepMobile++;
+                    }, 1);
+                }, () => {
+                    clearInterval(pulseRingIntervalIdMobile);
+                    pulseRingCollapsed.hide();
+                    pulseRingTimeStepMobile = 0;
+                });
+            }
         });
     } else {
         // console.log($(window).width()+" is med or larger");
