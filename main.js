@@ -1,2 +1,955 @@
-!function(e){function o(n){if(t[n])return t[n].exports;var i=t[n]={i:n,l:!1,exports:{}};return e[n].call(i.exports,i,i.exports,o),i.l=!0,i.exports}var t={};o.m=e,o.c=t,o.d=function(e,t,n){o.o(e,t)||Object.defineProperty(e,t,{configurable:!1,enumerable:!0,get:n})},o.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return o.d(t,"a",t),t},o.o=function(e,o){return Object.prototype.hasOwnProperty.call(e,o)},o.p="",o(o.s=0)}([function(e,o,t){"use strict";var n=t(1),i=function(e){var o=e.offsetTop,t=o+e.offsetHeight,n=window.scrollY,i=n+window.innerHeight;return t>n&&o<i};n(document).ready(function(){if(n(window).width()<=600){n(".button-collapse").sideNav(),n(".button-collapse").sideNav({menuWidth:300,edge:"left",closeOnClick:!0,draggable:!0,onOpen:function(e){},onClose:function(e){}});var e=n("#logo-pl-mobile"),o=n("#pulsing-ring-mobile"),t=0,s=setInterval(function(){var i=e.width(),s=i*(1+t%301/900),c=(n("#nav-row").width()-s)/2;o.css({width:s+"px",left:c+"px",opacity:1-t%301/300}),"hidden"==o.css("visibility")&&o.css("visibility","visible"),t++},1),c=n("#home-content-mobile");n("#home-link-mobile").click(function(){c.css("opacity","0"),c.hide(),c=n("#home-content-mobile"),c.show(),c.fadeTo(300,1)}),n("#resume-link-mobile").click(function(){c.css("opacity","0"),c.hide(),c=n("#resume-content-mobile"),c.show(),c.fadeTo(300,1)}),n("#projects-link-mobile").click(function(){c.css("opacity","0"),c.hide(),c=n("#projects-content-mobile"),c.show(),c.fadeTo(300,1)}),n("#thesis-link-mobile").click(function(){c.css("opacity","0"),c.hide(),c=n("#thesis-content-mobile"),c.show(),c.fadeTo(300,1)}),n("#contact-link-mobile").click(function(){c.css("opacity","0"),c.hide(),c=n("#contact-content-mobile"),c.show(),c.fadeTo(300,1)}),n(window).on("resize scroll",function(){var e=this,t=n("#home-content"),s=n("#home-content .section"),c=n("#logo-container, #logo-container-collapsed"),r=n("#resume-link, #resume-link-collapsed"),l=n("#contact-link, #contact-link-collapsed"),a=n("#projects-link, #projects-link-collapsed"),d=n("#thesis-link, #thesis-link-collapsed"),p=n("#logo-pl"),h=n("#logo-p-container"),w=n("#logo-l-container"),x=n("#logo-container"),f=n("#logo-container-collapsed"),u=n(".navbar-block"),m=(n(".navbar-block-collapsed"),n(".navbar-link")),g=n(".navbar-link-collapsed"),v=n(".navbar-link>span:nth-child(2n)"),b=n(".navbar-link>span:nth-child(2n+1)"),k=n("#pulsing-ring-collapsed"),y=n("#center-line"),T=.05*n(window).height(),I=n(window).width()*(1/12),j=n(window).width()/2-I/2,z=0,O=function(e){for(var o=0;o<e.length;o++)i(e[o])&&n(e[o]).fadeTo(700,1)},S=function(e){for(var o=0;o<e.length;o++)n(e[o]).css("opacity","0")},D=function(){T=.05*n(window).height(),I=n(window).width()*(1/12),j=n(window).width()/2-I/2,p.css({width:I/2+"px",left:I/4+"px",top:I/4+"px"}),x.css({top:T+"px",left:j+"px",width:I+"px",height:I+"px","border-radius":I/2+"px"}),o.css({top:T+"px",left:j+"px",width:I+"px",height:I+"px","border-radius":I/2+"px"}),u.css({margin:T+I*(1/3)+"px"}),m.css({"font-size":.2*I+"px"})};window.scrollTo(0,0),p.css({width:I/2+"px",left:I/4+"px",top:I/4+"px"}),x.css({top:T+"px",left:n(window).width()/2-I/2+"px",width:I+"px",height:I+"px","border-radius":I/2+"px"}),o.css({top:T+"px",left:n(window).width()/2-I/2+"px",width:I+"px",height:I+"px","border-radius":I/2+"px"}),u.css({margin:T+I*(1/3)+"px"}),m.css({"font-size":.2*I+"px",visibility:"visible"}),g.css({"font-size":.2*I+"px",visibility:"visible"}),y.css({left:n(window).width()/2-2}),v.fadeTo(0,0),b.fadeTo(0,0),h.remove(),w.remove(),x.css("visibility","visible"),y.css("height",n("#home-block-right").height()+"px"),v.css("opacity","1"),b.css("opacity","1"),O(s),D(),n(window).on("resize scroll",function(){D()}),c.click(function(){r.css("text-decoration","none"),l.css("text-decoration","none"),a.css("text-decoration","none"),d.css("text-decoration","none"),window.scrollTo(0,0),S(s),t.hide(),t=n("#home-content"),s=n("#home-content .section"),t.show(),O(s),D();var e=0,o=setInterval(function(){e<201?(y.css("height",n("#home-block-right").height()*(e/200)+"px"),e++):clearInterval(o)})}),r.click(function(){r.css("text-decoration","underline"),l.css("text-decoration","none"),a.css("text-decoration","none"),d.css("text-decoration","none"),window.scrollTo(0,0),S(s),t.hide(),t=n("#resume-content"),s=n("#resume-content .section"),t.show(),O(s),D()}),l.click(function(){r.css("text-decoration","none"),l.css("text-decoration","underline"),a.css("text-decoration","none"),d.css("text-decoration","none"),window.scrollTo(0,0),S(s),t.hide(),t=n("#contact-content"),s=n("#contact-content .section"),t.show(),O(s),D()}),a.click(function(){r.css("text-decoration","none"),l.css("text-decoration","none"),a.css("text-decoration","underline"),d.css("text-decoration","none"),window.scrollTo(0,0),S(s),t.hide(),t=n("#projects-content"),s=n("#projects-content .section"),t.show(),O(s),D()}),d.click(function(){r.css("text-decoration","none"),l.css("text-decoration","none"),a.css("text-decoration","none"),d.css("text-decoration","underline"),window.scrollTo(0,0),S(s),t.hide(),t=n("#thesis-content"),s=n("#thesis-content .section"),t.show(),O(s),D()}),n("#contact-form").submit(function(o){""==n("form #name").val()||""==n("form #email").val()||""==n("form #title").val()||""==n("form #message").val()?(o.preventDefault(),n("#message-form-error").text("Oops! Looks like some of the fields below are empty!")):(o.preventDefault(),n.ajax({url:"https://formspree.io/po.grammer.lin@gmail.com",method:"POST",data:n(e).serialize(),dataType:"json",beforeSend:function(){n("#message-form-error").text("Sending...")},success:function(e){n("#message-form-error").text("Thank you! Your message is sent!")},error:function(e){n("#message-form-error").text("There was an error submitting the form...")}}))});var C;x.hover(function(){o.show(),C=setInterval(function(){var e=I*(1+z%251/250),t=T-(e-I)/2,i=(n(window).width()-e)/2;o.css({width:e+"px",height:e+"px",top:t+"px",left:i+"px",opacity:1-z%251/249}),z++},1)},function(){clearInterval(C),o.hide(),z=0}),f.hover(function(){k.show(),C=setInterval(function(){var e=f.css("width").substring(0,f.css("width").length-2),o=e*(1+z%201/400),t=(n(window).width()-o)/2;k.css({width:o+"px",left:t+"px",opacity:1-z%201/200}),z++},1)},function(){clearInterval(C),k.hide(),z=0})})}else{var r=n("#home-content"),l=n("#home-content .section"),a=n("#logo-container, #logo-container-collapsed"),d=n("#resume-link, #resume-link-collapsed"),p=n("#contact-link, #contact-link-collapsed"),h=n("#projects-link, #projects-link-collapsed"),w=n("#thesis-link, #thesis-link-collapsed"),x=n("#logo-p"),f=n("#logo-l"),u=n("#logo-pl"),m=n("#logo-p-container"),g=n("#logo-l-container"),v=n("#logo-container"),b=n("#logo-container-collapsed"),k=n(".navbar-block"),y=n(".navbar-block-collapsed"),T=n(".navbar-link"),I=n(".navbar-link-collapsed"),j=n(".navbar-link>span:nth-child(2n)"),z=n(".navbar-link>span:nth-child(2n+1)"),O=n("#pulsing-ring"),S=n("#pulsing-ring-collapsed"),D=n("#center-line"),C=.05*n(window).height(),N=n(window).width()*(1/12),P=n(window).width()/2-N/2,Y=0,t=0,H=function(e){for(var o=0;o<e.length;o++)i(e[o])&&n(e[o]).fadeTo(700,1)},L=function(e){for(var o=0;o<e.length;o++)n(e[o]).css("opacity","0")},M=function(){C=.05*n(window).height(),N=n(window).width()*(1/12),P=n(window).width()/2-N/2,x.css({width:N/2+"px",left:N/4+"px",top:N/4+"px"}),f.css({width:N/2+"px",left:N/4+"px",top:N/4+"px"}),u.css({width:N/2+"px",left:N/4+"px",top:N/4+"px"}),m.css({top:C+"px",right:P+"px",width:N+"px",height:N+"px","border-radius":N/2+"px"}),g.css({top:C+"px",left:P+"px",width:N+"px",height:N+"px","border-radius":N/2+"px"}),v.css({top:C+"px",left:P+"px",width:N+"px",height:N+"px","border-radius":N/2+"px"}),O.css({top:C+"px",left:P+"px",width:N+"px",height:N+"px","border-radius":N/2+"px"}),k.css({margin:C+N*(1/3)+"px"}),T.css({"font-size":.2*N+"px"})};window.scrollTo(0,0),x.css({width:N/2+"px",left:N/4+"px",top:N/4+"px"}),f.css({width:N/2+"px",left:N/4+"px",top:N/4+"px"}),u.css({width:N/2+"px",left:N/4+"px",top:N/4+"px"}),m.css({top:C+"px",right:-1*N+"px",width:N+"px",height:N+"px","border-radius":N/2+"px"}),g.css({top:C+"px",left:-1*N+"px",width:N+"px",height:N+"px","border-radius":N/2+"px"}),v.css({top:C+"px",left:n(window).width()/2-N/2+"px",width:N+"px",height:N+"px","border-radius":N/2+"px"}),O.css({top:C+"px",left:n(window).width()/2-N/2+"px",width:N+"px",height:N+"px","border-radius":N/2+"px"}),k.css({margin:C+N*(1/3)+"px"}),T.css({"font-size":.2*N+"px",visibility:"visible"}),I.css({"font-size":.2*N+"px",visibility:"visible"}),D.css({left:n(window).width()/2-2}),j.fadeTo(0,0),z.fadeTo(0,0);var W=setInterval(function(){if(Y/300<1){var e=-1*Math.pow(Y/300-1,2)+1;P=n(window).width()/2-N/2,m.css({right:e*P+"px",top:C+"px"}),g.css({left:e*P+"px",top:C+"px"}),Y++}else{clearInterval(W),m.remove(),g.remove(),v.css("visibility","visible"),O.css("visibility","visible");var o=N*(1+t/10),i=C-(o-N)/2,s=(n(window).width()-o)/2,c=setInterval(function(){t<90?(o=N*(1+t/10),i=C-(o-N)/2,s=(n(window).width()-o)/2,O.css({width:o+"px",height:o+"px",top:i+"px",left:s+"px",opacity:1-t/89}),t++):(clearInterval(c),O.hide(),t=0)},1),r=0,a=setInterval(function(){r<201?(D.css("height",n("#home-block-right").height()*(r/200)+"px"),r++):clearInterval(a)});j.fadeTo(800,1);setTimeout(function(){z.fadeTo(800,1)},400);H(l),M()}},1);n(window).on("resize scroll",function(){if(M(),D.css({left:n(window).width()/2-2}),D.css("height",n("#home-block-right").height()+"px"),I.css({"font-size":.2*N+"px"}),H(l),i(k[0]))y.slideUp(50);else{y.slideDown(50);var e=b.css("width");e=parseInt(e.substring(0,e.length-2),10),S.css({width:e+"px",left:(n(window).width()-e)/2+"px"})}if(n(window).width()<=600){n(".button-collapse").sideNav(),n(".button-collapse").sideNav({menuWidth:300,edge:"left",closeOnClick:!0,draggable:!0,onOpen:function(e){},onClose:function(e){}});var o=n("#home-content-mobile");n("#home-link-mobile").click(function(){o.css("opacity","0"),o.hide(),o=n("#home-content-mobile"),o.show(),o.fadeTo(300,1)}),n("#resume-link-mobile").click(function(){o.css("opacity","0"),o.hide(),o=n("#resume-content-mobile"),o.show(),o.fadeTo(300,1)}),n("#projects-link-mobile").click(function(){o.css("opacity","0"),o.hide(),o=n("#projects-content-mobile"),o.show(),o.fadeTo(300,1)}),n("#thesis-link-mobile").click(function(){o.css("opacity","0"),o.hide(),o=n("#thesis-content-mobile"),o.show(),o.fadeTo(300,1)}),n("#contact-link-mobile").click(function(){o.css("opacity","0"),o.hide(),o=n("#contact-content-mobile"),o.show(),o.fadeTo(300,1)})}}),a.click(function(){d.css("text-decoration","none"),p.css("text-decoration","none"),h.css("text-decoration","none"),w.css("text-decoration","none"),window.scrollTo(0,0),L(l),r.hide(),r=n("#home-content"),l=n("#home-content .section"),r.show(),H(l),M();var e=0,o=setInterval(function(){e<201?(D.css("height",n("#home-block-right").height()*(e/200)+"px"),e++):clearInterval(o)})}),d.click(function(){d.css("text-decoration","underline"),p.css("text-decoration","none"),h.css("text-decoration","none"),w.css("text-decoration","none"),window.scrollTo(0,0),L(l),r.hide(),r=n("#resume-content"),l=n("#resume-content .section"),r.show(),H(l),M()}),p.click(function(){d.css("text-decoration","none"),p.css("text-decoration","underline"),h.css("text-decoration","none"),w.css("text-decoration","none"),window.scrollTo(0,0),L(l),r.hide(),r=n("#contact-content"),l=n("#contact-content .section"),r.show(),H(l),M()}),h.click(function(){d.css("text-decoration","none"),p.css("text-decoration","none"),h.css("text-decoration","underline"),w.css("text-decoration","none"),window.scrollTo(0,0),L(l),r.hide(),r=n("#projects-content"),l=n("#projects-content .section"),r.show(),H(l),M()}),w.click(function(){d.css("text-decoration","none"),p.css("text-decoration","none"),h.css("text-decoration","none"),w.css("text-decoration","underline"),window.scrollTo(0,0),L(l),r.hide(),r=n("#thesis-content"),l=n("#thesis-content .section"),r.show(),H(l),M()}),n("#contact-form").submit(function(e){""==n("form #name").val()||""==n("form #email").val()||""==n("form #title").val()||""==n("form #message").val()?(e.preventDefault(),n("#message-form-error").text("Oops! Looks like some of the fields below are empty!")):(e.preventDefault(),n.ajax({url:"https://formspree.io/po.grammer.lin@gmail.com",method:"POST",data:n(void 0).serialize(),dataType:"json",beforeSend:function(){n("#message-form-error").text("Sending...")},success:function(e){n("#message-form-error").text("Thank you! Your message is sent!")},error:function(e){n("#message-form-error").text("There was an error submitting the form...")}}))});var s;v.hover(function(){O.show(),s=setInterval(function(){var e=N*(1+t%251/250),o=C-(e-N)/2,i=(n(window).width()-e)/2;O.css({width:e+"px",height:e+"px",top:o+"px",left:i+"px",opacity:1-t%251/249}),t++},1)},function(){clearInterval(s),O.hide(),t=0}),b.hover(function(){S.show(),s=setInterval(function(){var e=b.css("width").substring(0,b.css("width").length-2),o=e*(1+t%201/400),i=(n(window).width()-o)/2;S.css({width:o+"px",left:i+"px",opacity:1-t%201/200}),t++},1)},function(){clearInterval(s),S.hide(),t=0})}})},function(e,o){e.exports=jQuery}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var $ = __webpack_require__(1);
+
+var isInViewport = function isInViewport(elem) {
+    var elemTop = elem.offsetTop;
+    var elemBottom = elemTop + elem.offsetHeight;
+    var viewportTop = window.scrollY;
+    var viewportBottom = viewportTop + window.innerHeight;
+    //console.log("elemTop: "+elemTop+"; elemBottom: "+elemBottom+"; viewPortTop: "+viewportTop+"; viewPortBottom: "+viewportBottom)
+    return elemBottom > viewportTop && elemTop < viewportBottom;
+};
+
+$(document).ready(function () {
+    if ($(window).width() <= 600) {
+        // console.log($(window).width()+" is small");
+        $(".button-collapse").sideNav();
+        $('.button-collapse').sideNav({
+            menuWidth: 300, // Default is 300
+            edge: 'left', // Choose the horizontal origin
+            closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+            draggable: true, // Choose whether you can drag to open on touch screens,
+            onOpen: function onOpen(el) {}, // A function to be called when sideNav is opened
+            onClose: function onClose(el) {} // A function to be called when sideNav is closed
+        });
+
+        var logo = $("#logo-pl-mobile");
+        var pulseRing = $("#pulsing-ring-mobile");
+
+        var pulseRingTimeStepMobile = 0;
+        var pulseRingIntervalIdMobile = setInterval(function () {
+            var pulseRingWidth = logo.width();
+            var newPulseRingWidth = pulseRingWidth * (1 + pulseRingTimeStepMobile % 301 / 900);
+            var newPulseRingTargetPixel = ($("#nav-row").width() - newPulseRingWidth) / 2;
+            pulseRing.css({
+                "width": newPulseRingWidth + "px",
+                "left": newPulseRingTargetPixel + "px",
+                "opacity": 1 - pulseRingTimeStepMobile % 301 / 300
+            });
+            if (pulseRing.css("visibility") == "hidden") {
+                pulseRing.css("visibility", "visible");
+            }
+            pulseRingTimeStepMobile++;
+        }, 1);
+
+        var currentViewMobile = $("#home-content-mobile");
+
+        $("#home-link-mobile").click(function () {
+            currentViewMobile.css("opacity", "0");
+            currentViewMobile.hide();
+            currentViewMobile = $("#home-content-mobile");
+            currentViewMobile.show();
+            currentViewMobile.fadeTo(300, 1);
+        });
+
+        $("#resume-link-mobile").click(function () {
+            currentViewMobile.css("opacity", "0");
+            currentViewMobile.hide();
+            currentViewMobile = $("#resume-content-mobile");
+            currentViewMobile.show();
+            currentViewMobile.fadeTo(300, 1);
+        });
+
+        $("#projects-link-mobile").click(function () {
+            currentViewMobile.css("opacity", "0");
+            currentViewMobile.hide();
+            currentViewMobile = $("#projects-content-mobile");
+            currentViewMobile.show();
+            currentViewMobile.fadeTo(300, 1);
+        });
+
+        $("#thesis-link-mobile").click(function () {
+            currentViewMobile.css("opacity", "0");
+            currentViewMobile.hide();
+            currentViewMobile = $("#thesis-content-mobile");
+            currentViewMobile.show();
+            currentViewMobile.fadeTo(300, 1);
+        });
+
+        $("#contact-link-mobile").click(function () {
+            currentViewMobile.css("opacity", "0");
+            currentViewMobile.hide();
+            currentViewMobile = $("#contact-content-mobile");
+            currentViewMobile.show();
+            currentViewMobile.fadeTo(300, 1);
+        });
+
+        $(window).on("resize scroll", function () {
+            var _this = this;
+
+            if ($(window).width() > 600) {
+                // console.log($(window).width()+" is med or larger");
+                var currentView = $("#home-content");
+                var currentContentSections = $("#home-content .section");
+                var homeLink = $("#logo-container, #logo-container-collapsed");
+                var resumeLink = $("#resume-link, #resume-link-collapsed");
+                var contactLink = $("#contact-link, #contact-link-collapsed");
+                var projectsLink = $("#projects-link, #projects-link-collapsed");
+                var thesisLink = $("#thesis-link, #thesis-link-collapsed");
+                var logoPL = $("#logo-pl");
+                var logoContP = $("#logo-p-container");
+                var logoContL = $("#logo-l-container");
+                var logoContPL = $("#logo-container");
+                var logoContPLCollapsed = $("#logo-container-collapsed");
+                var navbar = $(".navbar-block");
+                var navbarCollapsed = $(".navbar-block-collapsed");
+                var navbarText = $(".navbar-link");
+                var navbarTextCollapsed = $(".navbar-link-collapsed");
+                var navbarTextEven = $(".navbar-link>span:nth-child(2n)");
+                var navbarTextOdd = $(".navbar-link>span:nth-child(2n+1)");
+                var pulseRingCollapsed = $("#pulsing-ring-collapsed");
+                var screenTopOffsetMultiplier = 0.05;
+                var screenLogoSizeMultiplier = 1 / 12;
+                var centerLine = $("#center-line");
+                var logoTopOffset = $(window).height() * screenTopOffsetMultiplier;
+                var logoWidthHeight = $(window).width() * screenLogoSizeMultiplier;
+                var targetPixel = $(window).width() / 2 - logoWidthHeight / 2;
+                var logoMovementTimeStep = 0;
+                var pulseRingTimeStepMobile = 0;
+                var timeMultiplier = 300;
+                var logoPulseHalt = true;
+                var logoFadeOut = function logoFadeOut() {
+                    if (!logoPulseHalt) {
+                        logoContPL.fadeTo(1000, 0.4, logoFadeIn);
+                    }
+                };
+                var logoFadeIn = function logoFadeIn() {
+                    if (!logoPulseHalt) {
+                        logoContPL.fadeTo(1000, 1, logoFadeOut);
+                    }
+                };
+                var contentFadeIn = function contentFadeIn(sectionsSelector) {
+                    for (var i = 0; i < sectionsSelector.length; i++) {
+                        if (isInViewport(sectionsSelector[i])) {
+                            $(sectionsSelector[i]).fadeTo(700, 1);
+                        }
+                    }
+                };
+                var contentResetFade = function contentResetFade(sectionsSelector) {
+                    for (var i = 0; i < sectionsSelector.length; i++) {
+                        $(sectionsSelector[i]).css("opacity", "0");
+                    }
+                };
+                var recenterLogo = function recenterLogo() {
+                    logoTopOffset = $(window).height() * screenTopOffsetMultiplier;
+                    logoWidthHeight = $(window).width() * screenLogoSizeMultiplier;
+                    targetPixel = $(window).width() / 2 - logoWidthHeight / 2;
+                    //console.log("width of window is: "+$(window).width()+"; logo width is: "+logoWidthHeight+"; centering pixel is: "+targetPixel);
+
+                    logoPL.css({
+                        "width": logoWidthHeight / 2 + "px",
+                        "left": logoWidthHeight / 4 + "px",
+                        "top": logoWidthHeight / 4 + "px"
+                    });
+
+                    logoContPL.css({
+                        "top": logoTopOffset + "px",
+                        "left": targetPixel + "px",
+                        "width": logoWidthHeight + "px",
+                        "height": logoWidthHeight + "px",
+                        "border-radius": logoWidthHeight / 2 + "px"
+                    });
+
+                    pulseRing.css({
+                        "top": logoTopOffset + "px",
+                        "left": targetPixel + "px",
+                        "width": logoWidthHeight + "px",
+                        "height": logoWidthHeight + "px",
+                        "border-radius": logoWidthHeight / 2 + "px"
+                    });
+
+                    navbar.css({
+                        "margin": logoTopOffset + logoWidthHeight * (1 / 3) + "px"
+                    });
+
+                    navbarText.css({
+                        "font-size": logoWidthHeight * (1 / 5) + "px"
+                    });
+                };
+
+                window.scrollTo(0, 0);
+
+                logoPL.css({
+                    "width": logoWidthHeight / 2 + "px",
+                    "left": logoWidthHeight / 4 + "px",
+                    "top": logoWidthHeight / 4 + "px"
+                });
+
+                logoContPL.css({
+                    "top": logoTopOffset + "px",
+                    "left": $(window).width() / 2 - logoWidthHeight / 2 + "px",
+                    "width": logoWidthHeight + "px",
+                    "height": logoWidthHeight + "px",
+                    "border-radius": logoWidthHeight / 2 + "px"
+                });
+
+                pulseRing.css({
+                    "top": logoTopOffset + "px",
+                    "left": $(window).width() / 2 - logoWidthHeight / 2 + "px",
+                    "width": logoWidthHeight + "px",
+                    "height": logoWidthHeight + "px",
+                    "border-radius": logoWidthHeight / 2 + "px"
+                });
+
+                navbar.css({
+                    "margin": logoTopOffset + logoWidthHeight * (1 / 3) + "px"
+                });
+
+                navbarText.css({
+                    "font-size": logoWidthHeight * (1 / 5) + "px",
+                    "visibility": "visible"
+                });
+
+                navbarTextCollapsed.css({
+                    "font-size": logoWidthHeight * (1 / 5) + "px",
+                    "visibility": "visible"
+                });
+
+                centerLine.css({
+                    "left": $(window).width() / 2 - 2
+                });
+
+                navbarTextEven.fadeTo(0, 0);
+                navbarTextOdd.fadeTo(0, 0);
+
+                logoContP.remove();
+                logoContL.remove();
+                logoContPL.css("visibility", "visible");
+                centerLine.css("height", $("#home-block-right").height() + "px");
+                navbarTextEven.css("opacity", "1");
+                navbarTextOdd.css("opacity", "1");
+                contentFadeIn(currentContentSections);
+                recenterLogo();
+
+                $(window).on("resize scroll", function () {
+                    //TODO Debounce
+                    recenterLogo();
+                });
+
+                homeLink.click(function () {
+                    resumeLink.css("text-decoration", "none");
+                    contactLink.css("text-decoration", "none");
+                    projectsLink.css("text-decoration", "none");
+                    thesisLink.css("text-decoration", "none");
+                    window.scrollTo(0, 0);
+                    contentResetFade(currentContentSections);
+                    currentView.hide();
+                    currentView = $("#home-content");
+                    currentContentSections = $("#home-content .section");
+                    currentView.show();
+                    contentFadeIn(currentContentSections);
+                    recenterLogo();
+                    var centerLineStretchTimeStep = 0;
+                    var centerLineStretchIntervalId = setInterval(function () {
+                        if (centerLineStretchTimeStep < 201) {
+                            centerLine.css("height", $("#home-block-right").height() * (centerLineStretchTimeStep / 200) + "px");
+                            centerLineStretchTimeStep++;
+                        } else {
+                            clearInterval(centerLineStretchIntervalId);
+                        }
+                    });
+                });
+
+                resumeLink.click(function () {
+                    resumeLink.css("text-decoration", "underline");
+                    contactLink.css("text-decoration", "none");
+                    projectsLink.css("text-decoration", "none");
+                    thesisLink.css("text-decoration", "none");
+                    window.scrollTo(0, 0);
+                    contentResetFade(currentContentSections);
+                    currentView.hide();
+                    currentView = $("#resume-content");
+                    currentContentSections = $("#resume-content .section");
+                    currentView.show();
+                    contentFadeIn(currentContentSections);
+                    recenterLogo();
+                });
+
+                contactLink.click(function () {
+                    resumeLink.css("text-decoration", "none");
+                    contactLink.css("text-decoration", "underline");
+                    projectsLink.css("text-decoration", "none");
+                    thesisLink.css("text-decoration", "none");
+                    window.scrollTo(0, 0);
+                    contentResetFade(currentContentSections);
+                    currentView.hide();
+                    currentView = $("#contact-content");
+                    currentContentSections = $("#contact-content .section");
+                    currentView.show();
+                    contentFadeIn(currentContentSections);
+                    recenterLogo();
+                });
+
+                projectsLink.click(function () {
+                    //TODO Fade all elements out to opacity 0 to float in once loaded
+                    resumeLink.css("text-decoration", "none");
+                    contactLink.css("text-decoration", "none");
+                    projectsLink.css("text-decoration", "underline");
+                    thesisLink.css("text-decoration", "none");
+                    window.scrollTo(0, 0);
+                    contentResetFade(currentContentSections);
+                    currentView.hide();
+                    currentView = $("#projects-content");
+                    currentContentSections = $("#projects-content .section");
+                    currentView.show();
+                    contentFadeIn(currentContentSections);
+                    recenterLogo();
+                });
+
+                thesisLink.click(function () {
+                    resumeLink.css("text-decoration", "none");
+                    contactLink.css("text-decoration", "none");
+                    projectsLink.css("text-decoration", "none");
+                    thesisLink.css("text-decoration", "underline");
+                    //TODO Fade all elements out to opacity 0 to float in once loaded
+                    window.scrollTo(0, 0);
+                    contentResetFade(currentContentSections);
+                    currentView.hide();
+                    currentView = $("#thesis-content");
+                    currentContentSections = $("#thesis-content .section");
+                    currentView.show();
+                    contentFadeIn(currentContentSections);
+                    recenterLogo();
+                });
+
+                $("#contact-form").submit(function (e) {
+                    if ($("form #name").val() == "" || $("form #email").val() == "" || $("form #title").val() == "" || $("form #message").val() == "") {
+                        e.preventDefault();
+                        $("#message-form-error").text("Oops! Looks like some of the fields below are empty!");
+                    } else {
+                        e.preventDefault();
+                        $.ajax({
+                            url: 'https://formspree.io/po.grammer.lin@gmail.com',
+                            method: 'POST',
+                            data: $(_this).serialize(),
+                            dataType: 'json',
+                            beforeSend: function beforeSend() {
+                                $("#message-form-error").text("Sending...");
+                            },
+                            success: function success(data) {
+                                $("#message-form-error").text("Thank you! Your message is sent!");
+                            },
+                            error: function error(err) {
+                                $("#message-form-error").text("There was an error submitting the form...");
+                            }
+                        });
+                    }
+                });
+
+                var pulseRingIntervalIdMobile;
+                logoContPL.hover(function () {
+                    pulseRing.show();
+                    pulseRingIntervalIdMobile = setInterval(function () {
+                        var newPulseRingWidthHeight = logoWidthHeight * (1 + pulseRingTimeStepMobile % 251 / 250);
+                        var newPulseRingTopOffset = logoTopOffset - (newPulseRingWidthHeight - logoWidthHeight) / 2;
+                        var newPulseRingTargetPixel = ($(window).width() - newPulseRingWidthHeight) / 2;
+                        pulseRing.css({
+                            "width": newPulseRingWidthHeight + "px",
+                            "height": newPulseRingWidthHeight + "px",
+                            "top": newPulseRingTopOffset + "px",
+                            "left": newPulseRingTargetPixel + "px",
+                            "opacity": 1 - pulseRingTimeStepMobile % 251 / 249
+                        });
+                        pulseRingTimeStepMobile++;
+                    }, 1);
+                }, function () {
+                    clearInterval(pulseRingIntervalIdMobile);
+                    pulseRing.hide();
+                    pulseRingTimeStepMobile = 0;
+                });
+
+                logoContPLCollapsed.hover(function () {
+                    pulseRingCollapsed.show();
+                    pulseRingIntervalIdMobile = setInterval(function () {
+                        var pulseRingWidth = logoContPLCollapsed.css("width").substring(0, logoContPLCollapsed.css("width").length - 2);
+                        var newPulseRingWidth = pulseRingWidth * (1 + pulseRingTimeStepMobile % 201 / 400);
+                        var newPulseRingTargetPixel = ($(window).width() - newPulseRingWidth) / 2;
+                        pulseRingCollapsed.css({
+                            "width": newPulseRingWidth + "px",
+                            "left": newPulseRingTargetPixel + "px",
+                            "opacity": 1 - pulseRingTimeStepMobile % 201 / 200
+                        });
+                        pulseRingTimeStepMobile++;
+                    }, 1);
+                }, function () {
+                    clearInterval(pulseRingIntervalIdMobile);
+                    pulseRingCollapsed.hide();
+                    pulseRingTimeStepMobile = 0;
+                });
+            }
+        });
+    } else {
+        // console.log($(window).width()+" is med or larger");
+        var currentView = $("#home-content");
+        var currentContentSections = $("#home-content .section");
+        var homeLink = $("#logo-container, #logo-container-collapsed");
+        var resumeLink = $("#resume-link, #resume-link-collapsed");
+        var contactLink = $("#contact-link, #contact-link-collapsed");
+        var projectsLink = $("#projects-link, #projects-link-collapsed");
+        var thesisLink = $("#thesis-link, #thesis-link-collapsed");
+        var logoP = $("#logo-p");
+        var logoL = $("#logo-l");
+        var logoPL = $("#logo-pl");
+        var logoContP = $("#logo-p-container");
+        var logoContL = $("#logo-l-container");
+        var logoContPL = $("#logo-container");
+        var logoContPLCollapsed = $("#logo-container-collapsed");
+        var navbar = $(".navbar-block");
+        var navbarCollapsed = $(".navbar-block-collapsed");
+        var navbarText = $(".navbar-link");
+        var navbarTextCollapsed = $(".navbar-link-collapsed");
+        var navbarTextEven = $(".navbar-link>span:nth-child(2n)");
+        var navbarTextOdd = $(".navbar-link>span:nth-child(2n+1)");
+        var _pulseRing = $("#pulsing-ring");
+        var pulseRingCollapsed = $("#pulsing-ring-collapsed");
+        var screenTopOffsetMultiplier = 0.05;
+        var screenLogoSizeMultiplier = 1 / 12;
+        var centerLine = $("#center-line");
+        var logoTopOffset = $(window).height() * screenTopOffsetMultiplier;
+        var logoWidthHeight = $(window).width() * screenLogoSizeMultiplier;
+        var targetPixel = $(window).width() / 2 - logoWidthHeight / 2;
+        var logoMovementTimeStep = 0;
+        var pulseRingTimeStepMobile = 0;
+        var timeMultiplier = 300;
+        var logoPulseHalt = true;
+        var logoFadeOut = function logoFadeOut() {
+            if (!logoPulseHalt) {
+                logoContPL.fadeTo(1000, 0.4, logoFadeIn);
+            }
+        };
+        var logoFadeIn = function logoFadeIn() {
+            if (!logoPulseHalt) {
+                logoContPL.fadeTo(1000, 1, logoFadeOut);
+            }
+        };
+        var contentFadeIn = function contentFadeIn(sectionsSelector) {
+            for (var i = 0; i < sectionsSelector.length; i++) {
+                if (isInViewport(sectionsSelector[i])) {
+                    $(sectionsSelector[i]).fadeTo(700, 1);
+                }
+            }
+        };
+        var contentResetFade = function contentResetFade(sectionsSelector) {
+            for (var i = 0; i < sectionsSelector.length; i++) {
+                $(sectionsSelector[i]).css("opacity", "0");
+            }
+        };
+        var recenterLogo = function recenterLogo() {
+            logoTopOffset = $(window).height() * screenTopOffsetMultiplier;
+            logoWidthHeight = $(window).width() * screenLogoSizeMultiplier;
+            targetPixel = $(window).width() / 2 - logoWidthHeight / 2;
+            //console.log("width of window is: "+$(window).width()+"; logo width is: "+logoWidthHeight+"; centering pixel is: "+targetPixel);
+
+            logoP.css({
+                "width": logoWidthHeight / 2 + "px",
+                "left": logoWidthHeight / 4 + "px",
+                "top": logoWidthHeight / 4 + "px"
+            });
+
+            logoL.css({
+                "width": logoWidthHeight / 2 + "px",
+                "left": logoWidthHeight / 4 + "px",
+                "top": logoWidthHeight / 4 + "px"
+            });
+
+            logoPL.css({
+                "width": logoWidthHeight / 2 + "px",
+                "left": logoWidthHeight / 4 + "px",
+                "top": logoWidthHeight / 4 + "px"
+            });
+
+            logoContP.css({
+                "top": logoTopOffset + "px",
+                "right": targetPixel + "px",
+                "width": logoWidthHeight + "px",
+                "height": logoWidthHeight + "px",
+                "border-radius": logoWidthHeight / 2 + "px"
+            });
+
+            logoContL.css({
+                "top": logoTopOffset + "px",
+                "left": targetPixel + "px",
+                "width": logoWidthHeight + "px",
+                "height": logoWidthHeight + "px",
+                "border-radius": logoWidthHeight / 2 + "px"
+            });
+
+            logoContPL.css({
+                "top": logoTopOffset + "px",
+                "left": targetPixel + "px",
+                "width": logoWidthHeight + "px",
+                "height": logoWidthHeight + "px",
+                "border-radius": logoWidthHeight / 2 + "px"
+            });
+
+            _pulseRing.css({
+                "top": logoTopOffset + "px",
+                "left": targetPixel + "px",
+                "width": logoWidthHeight + "px",
+                "height": logoWidthHeight + "px",
+                "border-radius": logoWidthHeight / 2 + "px"
+            });
+
+            navbar.css({
+                "margin": logoTopOffset + logoWidthHeight * (1 / 3) + "px"
+            });
+
+            navbarText.css({
+                "font-size": logoWidthHeight * (1 / 5) + "px"
+            });
+        };
+
+        window.scrollTo(0, 0);
+
+        logoP.css({
+            "width": logoWidthHeight / 2 + "px",
+            "left": logoWidthHeight / 4 + "px",
+            "top": logoWidthHeight / 4 + "px"
+        });
+
+        logoL.css({
+            "width": logoWidthHeight / 2 + "px",
+            "left": logoWidthHeight / 4 + "px",
+            "top": logoWidthHeight / 4 + "px"
+        });
+
+        logoPL.css({
+            "width": logoWidthHeight / 2 + "px",
+            "left": logoWidthHeight / 4 + "px",
+            "top": logoWidthHeight / 4 + "px"
+        });
+
+        logoContP.css({
+            "top": logoTopOffset + "px",
+            "right": logoWidthHeight * -1 + "px",
+            "width": logoWidthHeight + "px",
+            "height": logoWidthHeight + "px",
+            "border-radius": logoWidthHeight / 2 + "px"
+        });
+
+        logoContL.css({
+            "top": logoTopOffset + "px",
+            "left": logoWidthHeight * -1 + "px",
+            "width": logoWidthHeight + "px",
+            "height": logoWidthHeight + "px",
+            "border-radius": logoWidthHeight / 2 + "px"
+        });
+
+        logoContPL.css({
+            "top": logoTopOffset + "px",
+            "left": $(window).width() / 2 - logoWidthHeight / 2 + "px",
+            "width": logoWidthHeight + "px",
+            "height": logoWidthHeight + "px",
+            "border-radius": logoWidthHeight / 2 + "px"
+        });
+
+        _pulseRing.css({
+            "top": logoTopOffset + "px",
+            "left": $(window).width() / 2 - logoWidthHeight / 2 + "px",
+            "width": logoWidthHeight + "px",
+            "height": logoWidthHeight + "px",
+            "border-radius": logoWidthHeight / 2 + "px"
+        });
+
+        navbar.css({
+            "margin": logoTopOffset + logoWidthHeight * (1 / 3) + "px"
+        });
+
+        navbarText.css({
+            "font-size": logoWidthHeight * (1 / 5) + "px",
+            "visibility": "visible"
+        });
+
+        navbarTextCollapsed.css({
+            "font-size": logoWidthHeight * (1 / 5) + "px",
+            "visibility": "visible"
+        });
+
+        centerLine.css({
+            "left": $(window).width() / 2 - 2
+        });
+
+        navbarTextEven.fadeTo(0, 0);
+        navbarTextOdd.fadeTo(0, 0);
+
+        var logoMovementIntervalId = setInterval(function () {
+            if (logoMovementTimeStep / timeMultiplier < 1) {
+                var moveFuncValue = -1 * Math.pow(logoMovementTimeStep / timeMultiplier - 1, 2) + 1;
+                targetPixel = $(window).width() / 2 - logoWidthHeight / 2;
+                logoContP.css({
+                    "right": moveFuncValue * targetPixel + "px",
+                    "top": logoTopOffset + "px"
+                });
+                logoContL.css({
+                    "left": moveFuncValue * targetPixel + "px",
+                    "top": logoTopOffset + "px"
+                });
+                logoMovementTimeStep++;
+            } else {
+                clearInterval(logoMovementIntervalId);
+                logoContP.remove();
+                logoContL.remove();
+                logoContPL.css("visibility", "visible");
+                _pulseRing.css("visibility", "visible");
+                var newPulseRingWidthHeight = logoWidthHeight * (1 + pulseRingTimeStepMobile / 10);
+                var newPulseRingTopOffset = logoTopOffset - (newPulseRingWidthHeight - logoWidthHeight) / 2;
+                var newPulseRingTargetPixel = ($(window).width() - newPulseRingWidthHeight) / 2;
+                var pulseRingIntervalId = setInterval(function () {
+                    if (pulseRingTimeStepMobile < 90) {
+                        newPulseRingWidthHeight = logoWidthHeight * (1 + pulseRingTimeStepMobile / 10);
+                        newPulseRingTopOffset = logoTopOffset - (newPulseRingWidthHeight - logoWidthHeight) / 2;
+                        newPulseRingTargetPixel = ($(window).width() - newPulseRingWidthHeight) / 2;
+                        _pulseRing.css({
+                            "width": newPulseRingWidthHeight + "px",
+                            "height": newPulseRingWidthHeight + "px",
+                            "top": newPulseRingTopOffset + "px",
+                            "left": newPulseRingTargetPixel + "px",
+                            "opacity": 1 - pulseRingTimeStepMobile / 89
+                        });
+                        pulseRingTimeStepMobile++;
+                    } else {
+                        clearInterval(pulseRingIntervalId);
+                        _pulseRing.hide();
+                        pulseRingTimeStepMobile = 0;
+                    }
+                }, 1);
+                var centerLineStretchTimeStep = 0;
+                var centerLineStretchIntervalId = setInterval(function () {
+                    if (centerLineStretchTimeStep < 201) {
+                        centerLine.css("height", $("#home-block-right").height() * (centerLineStretchTimeStep / 200) + "px");
+                        centerLineStretchTimeStep++;
+                    } else {
+                        clearInterval(centerLineStretchIntervalId);
+                    }
+                });
+                navbarTextEven.fadeTo(800, 1);
+                var evenCharTimeoutId = setTimeout(function () {
+                    navbarTextOdd.fadeTo(800, 1);
+                }, 400);
+                contentFadeIn(currentContentSections);
+                recenterLogo();
+            }
+        }, 1);
+
+        $(window).on("resize scroll", function () {
+            //TODO Debounce
+            recenterLogo();
+            centerLine.css({
+                "left": $(window).width() / 2 - 2
+            });
+            centerLine.css("height", $("#home-block-right").height() + "px");
+            navbarTextCollapsed.css({
+                "font-size": logoWidthHeight * (1 / 5) + "px"
+            });
+            contentFadeIn(currentContentSections);
+            if (!isInViewport(navbar[0])) {
+                navbarCollapsed.slideDown(50);
+                var ringWidth = logoContPLCollapsed.css("width");
+                ringWidth = parseInt(ringWidth.substring(0, ringWidth.length - 2), 10);
+                pulseRingCollapsed.css({
+                    "width": ringWidth + "px",
+                    "left": ($(window).width() - ringWidth) / 2 + "px"
+                });
+            } else {
+                navbarCollapsed.slideUp(50);
+            }
+
+            if ($(window).width() <= 600) {
+                // console.log($(window).width()+" is small");
+                $(".button-collapse").sideNav();
+                $('.button-collapse').sideNav({
+                    menuWidth: 300, // Default is 300
+                    edge: 'left', // Choose the horizontal origin
+                    closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                    draggable: true, // Choose whether you can drag to open on touch screens,
+                    onOpen: function onOpen(el) {}, // A function to be called when sideNav is opened
+                    onClose: function onClose(el) {} // A function to be called when sideNav is closed
+                });
+
+                var currentViewMobile = $("#home-content-mobile");
+
+                $("#home-link-mobile").click(function () {
+                    currentViewMobile.css("opacity", "0");
+                    currentViewMobile.hide();
+                    currentViewMobile = $("#home-content-mobile");
+                    currentViewMobile.show();
+                    currentViewMobile.fadeTo(300, 1);
+                });
+
+                $("#resume-link-mobile").click(function () {
+                    currentViewMobile.css("opacity", "0");
+                    currentViewMobile.hide();
+                    currentViewMobile = $("#resume-content-mobile");
+                    currentViewMobile.show();
+                    currentViewMobile.fadeTo(300, 1);
+                });
+
+                $("#projects-link-mobile").click(function () {
+                    currentViewMobile.css("opacity", "0");
+                    currentViewMobile.hide();
+                    currentViewMobile = $("#projects-content-mobile");
+                    currentViewMobile.show();
+                    currentViewMobile.fadeTo(300, 1);
+                });
+
+                $("#thesis-link-mobile").click(function () {
+                    currentViewMobile.css("opacity", "0");
+                    currentViewMobile.hide();
+                    currentViewMobile = $("#thesis-content-mobile");
+                    currentViewMobile.show();
+                    currentViewMobile.fadeTo(300, 1);
+                });
+
+                $("#contact-link-mobile").click(function () {
+                    currentViewMobile.css("opacity", "0");
+                    currentViewMobile.hide();
+                    currentViewMobile = $("#contact-content-mobile");
+                    currentViewMobile.show();
+                    currentViewMobile.fadeTo(300, 1);
+                });
+            }
+        });
+
+        homeLink.click(function () {
+            resumeLink.css("text-decoration", "none");
+            contactLink.css("text-decoration", "none");
+            projectsLink.css("text-decoration", "none");
+            thesisLink.css("text-decoration", "none");
+            window.scrollTo(0, 0);
+            contentResetFade(currentContentSections);
+            currentView.hide();
+            currentView = $("#home-content");
+            currentContentSections = $("#home-content .section");
+            currentView.show();
+            contentFadeIn(currentContentSections);
+            recenterLogo();
+            var centerLineStretchTimeStep = 0;
+            var centerLineStretchIntervalId = setInterval(function () {
+                if (centerLineStretchTimeStep < 201) {
+                    centerLine.css("height", $("#home-block-right").height() * (centerLineStretchTimeStep / 200) + "px");
+                    centerLineStretchTimeStep++;
+                } else {
+                    clearInterval(centerLineStretchIntervalId);
+                }
+            });
+        });
+
+        resumeLink.click(function () {
+            resumeLink.css("text-decoration", "underline");
+            contactLink.css("text-decoration", "none");
+            projectsLink.css("text-decoration", "none");
+            thesisLink.css("text-decoration", "none");
+            window.scrollTo(0, 0);
+            contentResetFade(currentContentSections);
+            currentView.hide();
+            currentView = $("#resume-content");
+            currentContentSections = $("#resume-content .section");
+            currentView.show();
+            contentFadeIn(currentContentSections);
+            recenterLogo();
+        });
+
+        contactLink.click(function () {
+            resumeLink.css("text-decoration", "none");
+            contactLink.css("text-decoration", "underline");
+            projectsLink.css("text-decoration", "none");
+            thesisLink.css("text-decoration", "none");
+            window.scrollTo(0, 0);
+            contentResetFade(currentContentSections);
+            currentView.hide();
+            currentView = $("#contact-content");
+            currentContentSections = $("#contact-content .section");
+            currentView.show();
+            contentFadeIn(currentContentSections);
+            recenterLogo();
+        });
+
+        projectsLink.click(function () {
+            //TODO Fade all elements out to opacity 0 to float in once loaded
+            resumeLink.css("text-decoration", "none");
+            contactLink.css("text-decoration", "none");
+            projectsLink.css("text-decoration", "underline");
+            thesisLink.css("text-decoration", "none");
+            window.scrollTo(0, 0);
+            contentResetFade(currentContentSections);
+            currentView.hide();
+            currentView = $("#projects-content");
+            currentContentSections = $("#projects-content .section");
+            currentView.show();
+            contentFadeIn(currentContentSections);
+            recenterLogo();
+        });
+
+        thesisLink.click(function () {
+            resumeLink.css("text-decoration", "none");
+            contactLink.css("text-decoration", "none");
+            projectsLink.css("text-decoration", "none");
+            thesisLink.css("text-decoration", "underline");
+            //TODO Fade all elements out to opacity 0 to float in once loaded
+            window.scrollTo(0, 0);
+            contentResetFade(currentContentSections);
+            currentView.hide();
+            currentView = $("#thesis-content");
+            currentContentSections = $("#thesis-content .section");
+            currentView.show();
+            contentFadeIn(currentContentSections);
+            recenterLogo();
+        });
+
+        $("#contact-form").submit(function (e) {
+            if ($("form #name").val() == "" || $("form #email").val() == "" || $("form #title").val() == "" || $("form #message").val() == "") {
+                e.preventDefault();
+                $("#message-form-error").text("Oops! Looks like some of the fields below are empty!");
+            } else {
+                e.preventDefault();
+                $.ajax({
+                    url: 'https://formspree.io/po.grammer.lin@gmail.com',
+                    method: 'POST',
+                    data: $(undefined).serialize(),
+                    dataType: 'json',
+                    beforeSend: function beforeSend() {
+                        $("#message-form-error").text("Sending...");
+                    },
+                    success: function success(data) {
+                        $("#message-form-error").text("Thank you! Your message is sent!");
+                    },
+                    error: function error(err) {
+                        $("#message-form-error").text("There was an error submitting the form...");
+                    }
+                });
+            }
+        });
+
+        var pulseRingIntervalIdMobile;
+        logoContPL.hover(function () {
+            _pulseRing.show();
+            pulseRingIntervalIdMobile = setInterval(function () {
+                var newPulseRingWidthHeight = logoWidthHeight * (1 + pulseRingTimeStepMobile % 251 / 250);
+                var newPulseRingTopOffset = logoTopOffset - (newPulseRingWidthHeight - logoWidthHeight) / 2;
+                var newPulseRingTargetPixel = ($(window).width() - newPulseRingWidthHeight) / 2;
+                _pulseRing.css({
+                    "width": newPulseRingWidthHeight + "px",
+                    "height": newPulseRingWidthHeight + "px",
+                    "top": newPulseRingTopOffset + "px",
+                    "left": newPulseRingTargetPixel + "px",
+                    "opacity": 1 - pulseRingTimeStepMobile % 251 / 249
+                });
+                pulseRingTimeStepMobile++;
+            }, 1);
+        }, function () {
+            clearInterval(pulseRingIntervalIdMobile);
+            _pulseRing.hide();
+            pulseRingTimeStepMobile = 0;
+        });
+
+        logoContPLCollapsed.hover(function () {
+            pulseRingCollapsed.show();
+            pulseRingIntervalIdMobile = setInterval(function () {
+                var pulseRingWidth = logoContPLCollapsed.css("width").substring(0, logoContPLCollapsed.css("width").length - 2);
+                var newPulseRingWidth = pulseRingWidth * (1 + pulseRingTimeStepMobile % 201 / 400);
+                var newPulseRingTargetPixel = ($(window).width() - newPulseRingWidth) / 2;
+                pulseRingCollapsed.css({
+                    "width": newPulseRingWidth + "px",
+                    "left": newPulseRingTargetPixel + "px",
+                    "opacity": 1 - pulseRingTimeStepMobile % 201 / 200
+                });
+                pulseRingTimeStepMobile++;
+            }, 1);
+        }, function () {
+            clearInterval(pulseRingIntervalIdMobile);
+            pulseRingCollapsed.hide();
+            pulseRingTimeStepMobile = 0;
+        });
+    }
+});
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+module.exports = jQuery;
+
+/***/ })
+/******/ ]);
 //# sourceMappingURL=main.js.map
